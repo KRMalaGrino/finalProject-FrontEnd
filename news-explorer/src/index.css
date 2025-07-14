@@ -3,5 +3,14 @@
 @import url(./components/App.css);
 
 @import url(./components/Header/Header.css);
+@import url(./components/Navigation/Navigation.css);
+@import url(./components/SearchForm/SearchForm.css);
 @import url(./components/Main/Main.css);
+@import url(./components/NewsCard/NewsCard.css);
+@import url(./components/About/About.css);
 @import url(./components/Footer/Footer.css);
+@import url(./components/Preloader/Preloader.css);
+
+@import url(./components/ModalWithForm/ModalWIthForm.css);
+@import url(./components/RegisterModal/RegisterModal.css);
+@import url(./components/LoginModal/LoginModal.css);
