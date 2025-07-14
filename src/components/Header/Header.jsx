@@ -1,12 +1,12 @@
 import Navigation from "./Navigation/Navigation";
 import SearchForm from "./SearchForm/SearchForm";
 
-function Header() {
+function Header({ isSignedIn }) {
   return (
     <div className="header-searchForm__wrapper">
       <div className="header">
         <p className="header__title">NewsExplorer</p>
-        <Navigation />
+        <Navigation isSignedIn={isSignedIn} />
       </div>
       <SearchForm />
     </div>

@@ -1,4 +1,5 @@
-import { Route, Routes } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
 
 import Header from "./Header/Header";
 import Main from "./Main/Main";
@@ -9,6 +10,27 @@ import LoginModal from "./LoginModal/LoginModal";
 import RegisterModal from "./RegisterModal/RegisterModal";
 
 function App() {
+  const [isSignedIn, setIsSignedIn] = useState(false);
+  const navigate = useNavigate();
+
+  // handle sign in
+  // const handleSignin = ({ email, password }) => {
+  //   return // finish code call to the auth . something . then
+  //   .then(() => {
+
+  //   }).then(() => {
+
+  //   }).catch(console.error);
+  // };
+
+  // handle sign out
+  // const handleSignOut = () => {
+  //   setIsLoggedIn(false);
+  //   navigate("/");
+  // };
+
+  // use effect for checking if user is logged in
+
   return (
     <div>
       <Routes>
