@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
 
 import Header from "./Header/Header";
 import Navigation from "./Navigation/Navigation";
@@ -16,10 +16,19 @@ function App() {
     <div>
       <Header />
       <Navigation />
-      <SearchForm />
-      <Main />
-      <NewsCard />
-      <About />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <SearchForm />
+              <Main />
+              <NewsCard />
+            </>
+          }
+        />
+        <Route path="/about" element={<About />} />
+      </Routes>
       <Footer />
       <Preloader />
       <LoginModal />
