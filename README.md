@@ -1,1 +1,1 @@
-# Project Frontend
+# Final Project - News Explorer - Frontend
