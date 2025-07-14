@@ -1,7 +1,14 @@
+import Navigation from "./Navigation/Navigation";
+import SearchForm from "./SearchForm/SearchForm";
+
 function Header() {
   return (
-    <div>
-      <h1></h1>
+    <div className="header-searchForm__wrapper">
+      <div className="header">
+        <p className="header__title">NewsExplorer</p>
+        <Navigation />
+      </div>
+      <SearchForm />
     </div>
   );
 }

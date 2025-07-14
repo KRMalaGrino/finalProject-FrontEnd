@@ -1,7 +1,9 @@
+import NewsCard from "./NewsCard/NewsCard";
+
 function Main() {
   return (
     <div>
-      <h1></h1>
+      <NewsCard />
     </div>
   );
 }
