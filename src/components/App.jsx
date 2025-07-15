@@ -35,7 +35,6 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<Header />} />
-        <Route path="/about" element={<About />} />
         <Route
           path="/saved-news"
           element={
@@ -45,6 +44,7 @@ function App() {
           }
         />
       </Routes>
+      <About />
       <Footer />
       <Preloader />
       <LoginModal />

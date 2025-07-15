@@ -10,7 +10,7 @@ function SearchForm() {
         <label className="searchForm__label" htmlFor="search-form">
           <input
             className="searchForm__input"
-            type="search-form"
+            type="search"
             id="search-form"
             name="search-form"
             placeholder="Enter topic"
