@@ -43,12 +43,16 @@
 
 .searchForm__input {
   padding: 21px 24px;
-  flex: 1; /* why this works ? */
+  flex: 1;
 
   border: none;
   border-radius: 100px;
 
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.searchForm__input::placeholder {
+  opacity: 0.6;
 }
 
 .searchForm__btn {

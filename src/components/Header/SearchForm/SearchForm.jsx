@@ -6,14 +6,21 @@ function SearchForm() {
         Find the latest news on any topic and save them in your personal
         account.
       </p>
-      <form className="searchForm__form">
-        <label className="searchForm__label">
-          <input className="searchForm__input" />
-          <button className="searchForm__btn">Search</button>
+      <form className="searchForm__form" id="searchForm">
+        <label className="searchForm__label" htmlFor="search-form">
+          <input
+            className="searchForm__input"
+            type="search-form"
+            id="search-form"
+            name="search-form"
+            placeholder="Enter topic"
+          />
+          <button className="searchForm__btn" type="submit">
+            Search
+          </button>
         </label>
       </form>
     </div>
-    // form ?
   );
 }
 
