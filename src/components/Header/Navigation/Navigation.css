@@ -20,6 +20,8 @@
   font-size: 18px;
   line-height: 24px;
   color: white;
+
+  cursor: pointer;
 }
 
 .navigation__sign-in {
@@ -36,6 +38,8 @@
   border: white solid;
   border-width: 1px;
   border-radius: 100px;
+
+  cursor: pointer;
 }
 
 .navigation__saved-articles {
@@ -43,6 +47,8 @@
 
   border: none;
   background-color: transparent;
+
+  cursor: pointer;
 }
 
 .navigation__author-wrapper {
@@ -56,10 +62,14 @@
   padding: 0;
 
   background-color: transparent;
+
+  cursor: pointer;
 }
 
 .navigation__exit-icon {
   padding: 0;
 
   background-color: transparent;
+
+  cursor: pointer;
 }
