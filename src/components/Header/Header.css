@@ -23,7 +23,7 @@
   height: 80px;
   box-sizing: border-box;
 
-  border-bottom: 1px white solid;
+  border-bottom: 1px #d1d2d6 solid;
 }
 
 .header__title {
