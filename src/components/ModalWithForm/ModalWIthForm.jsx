@@ -5,6 +5,7 @@ function ModalWithForm({
   onSubmit,
   children,
   buttonText,
+  altButtonText,
 }) {
   // click handler for clicking outside the modal to close it
   const handleOverlayClick = (e) => {
@@ -30,6 +31,12 @@ function ModalWithForm({
             <button className="modal-with-form__submit-btn">
               {buttonText}
             </button>
+            <div className="modal-with-form__alt-wrapper">
+              <p className="modal-with-form__alt-text">or</p>
+              <button className="modal-with-form__alt-btn">
+                {altButtonText}
+              </button>
+            </div>
           </div>
         </form>
         <button

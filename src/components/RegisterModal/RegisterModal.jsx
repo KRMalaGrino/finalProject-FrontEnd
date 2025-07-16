@@ -1,3 +1,5 @@
+import ModalWithForm from "../ModalWithForm/ModalWIthForm";
+
 function RegisterModal() {
   return (
     <div>
