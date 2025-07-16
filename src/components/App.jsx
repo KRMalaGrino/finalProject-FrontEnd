@@ -8,6 +8,7 @@ import Footer from "./Footer/Footer";
 import Preloader from "./Preloader/Preloader";
 import LoginModal from "./LoginModal/LoginModal";
 import RegisterModal from "./RegisterModal/RegisterModal";
+import ModalWithForm from "./ModalWithForm/ModalWIthForm";
 
 function App() {
   const [isSignedIn, setIsSignedIn] = useState(false);
@@ -47,6 +48,7 @@ function App() {
       <About />
       <Footer />
       <Preloader />
+      <ModalWithForm />
       <LoginModal />
       <RegisterModal />
     </div>
