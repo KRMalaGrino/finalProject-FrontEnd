@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import ModalWithForm from "../ModalWithForm/ModalWIthForm";
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 function LoginModal({
   handleCloseClick,

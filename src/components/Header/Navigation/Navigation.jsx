@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import logoutWhite from "../../../images/logout-white.png";
 
-function Navigation({ isSignedIn }) {
+function Navigation({ isSignedIn, openLoginModal }) {
   return (
     <nav className="navigation">
       <Link to="/">
@@ -25,7 +25,9 @@ function Navigation({ isSignedIn }) {
           </div>
         </>
       ) : (
-        <button className="navigation__sign-in">Sign in</button>
+        <button className="navigation__sign-in" onClick={openLoginModal}>
+          Sign in
+        </button>
       )}
     </nav>
   );

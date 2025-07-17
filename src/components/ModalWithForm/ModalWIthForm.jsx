@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 function ModalWithForm({
   handleCloseClick,
   isOpen,
@@ -6,6 +8,8 @@ function ModalWithForm({
   children,
   buttonText,
   altButtonText,
+  activeModal,
+  closeActiveModal,
 }) {
   // click handler for clicking outside the modal to close it
   const handleOverlayClick = (e) => {
@@ -13,6 +17,21 @@ function ModalWithForm({
       handleCloseClick();
     }
   };
+  // Escape key close modal
+  useEffect(() => {
+    if (!activeModal) return;
+    const handleEscClose = (e) => {
+      if (e.key === "Escape") {
+        closeActiveModal();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscClose);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscClose);
+    };
+  }, [activeModal]);
 
   return (
     <div
