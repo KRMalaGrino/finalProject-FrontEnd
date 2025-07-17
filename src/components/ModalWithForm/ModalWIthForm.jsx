@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 function ModalWithForm({
-  handleCloseClick,
+  closeActiveModal,
   isOpen,
   titleText,
   onSubmit,
@@ -9,12 +9,11 @@ function ModalWithForm({
   buttonText,
   altButtonText,
   activeModal,
-  closeActiveModal,
 }) {
   // click handler for clicking outside the modal to close it
   const handleOverlayClick = (e) => {
     if (e.target === e.currentTarget) {
-      handleCloseClick();
+      closeActiveModal();
     }
   };
   // Escape key close modal
@@ -59,7 +58,7 @@ function ModalWithForm({
           </div>
         </form>
         <button
-          onClick={handleCloseClick}
+          onClick={closeActiveModal}
           type="button"
           className="modal-with-form__close-btn"
         ></button>

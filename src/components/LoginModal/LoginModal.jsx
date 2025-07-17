@@ -1,9 +1,6 @@
-import { useState, useEffect } from "react";
-
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 function LoginModal({
-  handleCloseClick,
   isOpen,
   handleSubmit,
   handleLogin,
@@ -15,9 +12,8 @@ function LoginModal({
       titleText="Sign in"
       buttonText="Sign in"
       altButtonText="Sign up"
-      // handleCloseClick={handleCloseClick}
-      // isOpen={isOpen}
-      // onSubmit={handleSubmit}
+      isOpen={isOpen}
+      onSubmit={handleSubmit}
     >
       <label className="modal-with-form__label" htmlFor="login-email">
         {" "}

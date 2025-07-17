@@ -17,6 +17,8 @@ import ModalWithForm from "./ModalWithForm/ModalWithForm";
 function App() {
   const [activeModal, setActiveModal] = useState("");
   const [isSignedIn, setIsSignedIn] = useState(false);
+  const [registerError, setRegisterError] = useState("");
+
   const navigate = useNavigate();
 
   const openLoginModal = () => {
@@ -36,14 +38,17 @@ function App() {
   };
 
   // handle register
-  const handleRegistration = ({ email, password, username }) => {};
+  const handleRegistration = ({ email, password, username }) => {
+    setRegisterError("");
+  };
 
   // handle sign in
   const handleSignin = ({ email, password }) => {};
 
   // handle sign out
   const handleSignOut = () => {
-    setIsLoggedIn(false);
+    setIsSignedIn(false);
+    closeActiveModal();
     navigate("/");
   };
 
@@ -71,10 +76,17 @@ function App() {
         <Preloader />
         <ModalWithForm
           activeModal={activeModal}
+          isOpen={activeModal === "login" || activeModal === "register"}
           closeActiveModal={closeActiveModal}
         />
-        <LoginModal openRegisterModal={openRegisterModal} />
-        <RegisterModal openLoginModal={openLoginModal} />
+        <LoginModal
+          isOpen={activeModal === "login"}
+          openRegisterModal={openRegisterModal}
+        />
+        <RegisterModal
+          isOpen={activeModal === "register"}
+          openLoginModal={openLoginModal}
+        />
       </div>
     </CurrentUserContext.Provider>
   );

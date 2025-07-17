@@ -1,9 +1,6 @@
-import { useState, useEffect } from "react";
-
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 function RegisterModal({
-  handleCloseClick,
   isOpen,
   handleSubmit,
   handleEmail,
@@ -15,9 +12,8 @@ function RegisterModal({
       titleText="Sign up"
       buttonText="Sign up"
       altButtonText="Sign in"
-      // handleCloseClick={handleCloseClick}
-      // isOpen={isOpen}
-      // onSubmit={handleSubmit}
+      isOpen={isOpen}
+      onSubmit={handleSubmit}
     >
       <label className="modal-with-form__label" htmlFor="register-email">
         {" "}
