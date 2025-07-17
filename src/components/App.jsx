@@ -1,13 +1,14 @@
+// react
 import { useState, useEffect } from "react";
-import { Route, Routes, useNavigate } from "react-router-dom";
-
+import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
+// context
 import CurrentUserContext from "../contexts/CurrentUserContext";
-
+// utils
 import { APIkey } from "../utils/constants";
 import { getNews, filterSearchResults } from "../utils/newsApi";
 import * as api from "../utils/api";
 import * as auth from "../utils/auth";
-
+// components
 import Header from "./Header/Header";
 import Main from "./Main/Main";
 import About from "./About/About";
@@ -18,11 +19,21 @@ import RegisterModal from "./RegisterModal/RegisterModal";
 import ModalWithForm from "./ModalWithForm/ModalWithForm";
 
 function App() {
+  // use states
   const [activeModal, setActiveModal] = useState("");
+  const [userData, setUserData] = useState({
+    _id: "",
+    username: "",
+    email: "",
+  });
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [registerError, setRegisterError] = useState("");
-
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const openRegisterModal = () => {
+    setActiveModal("register");
+  };
 
   const openLoginModal = () => {
     setActiveModal("login");
@@ -32,8 +43,8 @@ function App() {
     setActiveModal("logout");
   };
 
-  const openRegisterModal = () => {
-    setActiveModal("register");
+  const openEditProfileModal = () => {
+    setActiveModal("edit-profile");
   };
 
   const closeActiveModal = () => {
