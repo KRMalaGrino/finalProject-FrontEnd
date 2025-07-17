@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 
+import newsApi from "../utils/newsApi";
+
 import Header from "./Header/Header";
 import Main from "./Main/Main";
 import About from "./About/About";
@@ -11,8 +13,21 @@ import RegisterModal from "./RegisterModal/RegisterModal";
 import ModalWithForm from "./ModalWithForm/ModalWIthForm";
 
 function App() {
+  const [activeModal, setActiveModal] = useState("");
   const [isSignedIn, setIsSignedIn] = useState(false);
   const navigate = useNavigate();
+
+  const openLoginModal = () => {
+    setActiveModal("login");
+  };
+
+  const openLogoutModal = () => {
+    setActiveModal("logout");
+  };
+
+  const openRegisterModal = () => {
+    setActiveModal("register");
+  };
 
   // handle sign in
   // const handleSignin = ({ email, password }) => {
