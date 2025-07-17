@@ -3,7 +3,10 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 
 import CurrentUserContext from "../contexts/CurrentUserContext";
 
-import newsApi from "../utils/newsApi";
+import { APIkey } from "../utils/constants";
+import { getNews, filterSearchResults } from "../utils/newsApi";
+import * as api from "../utils/api";
+import * as auth from "../utils/auth";
 
 import Header from "./Header/Header";
 import Main from "./Main/Main";
@@ -53,6 +56,15 @@ function App() {
   };
 
   // use effect for checking if user is logged in
+
+  // use effect for getting the news
+  useEffect(() => {
+    getNews(APIkey)
+      .then((data) => {
+        filterSearchResults(data);
+      })
+      .catch(console.error);
+  }, []);
 
   return (
     <CurrentUserContext.Provider value={{ currentUser: isSignedIn }}>
