@@ -2,7 +2,14 @@ import { useState, useEffect } from "react";
 
 import ModalWithForm from "../ModalWithForm/ModalWIthForm";
 
-function LoginModal({ handleCloseClick, isOpen, handleLogin }) {
+function LoginModal({
+  handleCloseClick,
+  isOpen,
+  handleSubmit,
+  handleLogin,
+  handleEmail,
+  handlePassword,
+}) {
   return (
     <ModalWithForm
       titleText="Sign in"

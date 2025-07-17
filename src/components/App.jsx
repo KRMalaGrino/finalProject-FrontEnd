@@ -33,7 +33,7 @@ function App() {
   // use effect for checking if user is logged in
 
   return (
-    <div>
+    <div className="app">
       <Routes>
         <Route path="/" element={<Header />} />
         <Route

@@ -1,10 +1,80 @@
+import { useState, useEffect } from "react";
+
 import ModalWithForm from "../ModalWithForm/ModalWIthForm";
 
-function RegisterModal() {
+function RegisterModal({
+  handleCloseClick,
+  isOpen,
+  handleSubmit,
+  handleEmail,
+  handlePassword,
+  handleUsername,
+}) {
   return (
-    <div>
-      <h1></h1>
-    </div>
+    <ModalWithForm
+      titleText="Sign up"
+      buttonText="Sign up"
+      altButtonText="Sign in"
+      // handleCloseClick={handleCloseClick}
+      // isOpen={isOpen}
+      // onSubmit={handleSubmit}
+    >
+      <label className="modal-with-form__label" htmlFor="register-email">
+        {" "}
+        <p className="modal-with-form__label-text">Email</p>
+        <input
+          className="modal-with-form__input"
+          type="email"
+          id="register-email"
+          name="email"
+          placeholder="Enter email"
+          minLength="2"
+          maxLength="200"
+          required
+          // onChange={handleEmail}
+          // value={email}
+        />
+        <span className="modal-with-form__error" id="login-email-error">
+          Please fill out this field.
+        </span>
+      </label>
+      <label className="modal-with-form__label" htmlFor="register-password">
+        {" "}
+        <p className="modal-with-form__label-text">Password</p>
+        <input
+          className="modal-with-form__input"
+          type="password"
+          id="register-password"
+          name="password"
+          placeholder="Enter password"
+          minLength="8"
+          required
+          // onChange={handlePassword}
+          // value={password}
+        />
+        <span className="modal-with-form__error" id="register-password-error">
+          Please enter a valid password.
+        </span>
+      </label>
+      <label className="modal-with-form__label" htmlFor="register-username">
+        {" "}
+        <p className="modal-with-form__label-text">Username</p>
+        <input
+          className="modal-with-form__input"
+          type="username"
+          id="register-username"
+          name="username"
+          placeholder="Enter your username"
+          minLength="4"
+          required
+          // onChange={handleUsername}
+          // value={username}
+        />
+        <span className="modal-with-form__error" id="register-password-error">
+          Please enter a valid password.
+        </span>
+      </label>
+    </ModalWithForm>
   );
 }
 
