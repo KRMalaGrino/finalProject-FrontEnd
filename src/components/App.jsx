@@ -55,6 +55,18 @@ function App() {
   // handle register
   const handleRegistration = ({ email, password, username }) => {
     setRegisterError("");
+    return auth
+      .signUp(email, password, username)
+      .then(() => {
+        return handleSignin({ email, password });
+      })
+      .catch((err) => {
+        if (err.status === 409) {
+          setRegisterError("User with this email already exists.");
+        } else {
+          setRegisterError("Registration failed. Please try again.");
+        }
+      });
   };
 
   // handle sign in
@@ -106,6 +118,7 @@ function App() {
         />
         <RegisterModal
           isOpen={activeModal === "register"}
+          handleRegistration={handleRegistration}
           openLoginModal={openLoginModal}
           closeActiveModal={closeActiveModal}
         />

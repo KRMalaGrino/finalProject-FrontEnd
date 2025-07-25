@@ -1,15 +1,50 @@
+import { useState, useEffect } from "react";
+
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 function RegisterModal({
   isOpen,
-  handleSubmit,
-  handleEmail,
-  handlePassword,
-  handleUsername,
+  handleRegistration,
   openLoginModal,
   closeActiveModal,
-  onAltButtonClick,
 }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleUsername = (e) => {
+    setUsername(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleRegistration({ email, password, username })
+      .then(() => {
+        setEmail("");
+        setPassword("");
+        setUsername("");
+      })
+      .catch((err) => {
+        console.error("Failed to register", err);
+      });
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      setEmail("");
+      setPassword("");
+      setUsername("");
+    }
+  }, [isOpen]);
+
   return (
     <ModalWithForm
       titleText="Sign up"
@@ -32,8 +67,8 @@ function RegisterModal({
           minLength="2"
           maxLength="200"
           required
-          // onChange={handleEmail}
-          // value={email}
+          onChange={handleEmail}
+          value={email}
         />
         <span className="modal-with-form__error" id="login-email-error">
           Please fill out this field.
@@ -50,8 +85,8 @@ function RegisterModal({
           placeholder="Enter password"
           minLength="8"
           required
-          // onChange={handlePassword}
-          // value={password}
+          onChange={handlePassword}
+          value={password}
         />
         <span className="modal-with-form__error" id="register-password-error">
           Please enter a valid password.
@@ -68,8 +103,8 @@ function RegisterModal({
           placeholder="Enter your username"
           minLength="4"
           required
-          // onChange={handleUsername}
-          // value={username}
+          onChange={handleUsername}
+          value={username}
         />
         <span className="modal-with-form__error" id="register-password-error">
           Please enter a valid password.
