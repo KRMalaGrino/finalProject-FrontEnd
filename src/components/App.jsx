@@ -4,7 +4,8 @@ import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
 // context
 import CurrentUserContext from "../contexts/CurrentUserContext";
 // utils
-import { APIkey } from "../utils/constants";
+import newsData from "../utils/constants";
+import { APIkey } from "../utils/apiUtils";
 import { getNews, filterSearchResults } from "../utils/newsApi";
 import * as api from "../utils/api";
 import * as auth from "../utils/auth";
@@ -70,11 +71,11 @@ function App() {
 
   // use effect for getting the news
   useEffect(() => {
-    getNews(APIkey)
-      .then((data) => {
-        filterSearchResults(data);
-      })
-      .catch(console.error);
+    const timeout = setTimeout(() => {
+      filterSearchResults(newsData);
+    }, 500);
+
+    return () => clearTimeout(timeout);
   }, []);
 
   return (

@@ -1,12 +1,9 @@
-import { handleResponse } from "./apiUtils";
-import { baseUrl, baseHeader } from "./constants";
+import { handleResponse, baseUrl, baseHeader } from "./apiUtils";
 
-// get token
 function getToken() {
   return localStorage.getItem("jwt");
 }
 
-// sign up
 function signUp(email, password, username) {
   return fetch(`${baseUrl}/signup`, {
     method: "POST",
@@ -15,7 +12,6 @@ function signUp(email, password, username) {
   }).then(handleResponse);
 }
 
-// sign in
 function signIn(email, password) {
   return fetch(`${baseUrl}/signin`, {
     method: "POST",
@@ -24,7 +20,6 @@ function signIn(email, password) {
   }).then(handleResponse);
 }
 
-// check token validity
 function checkTokenValidity(token) {
   return fetch(`${baseUrl}/users/me`, {
     method: "GET",
@@ -35,7 +30,6 @@ function checkTokenValidity(token) {
   }).then(handleResponse);
 }
 
-// edit profile
 function editProfile(token, username, avatar, bio) {
   return fetch(`${baseUrl}/users/me`, {
     method: "PATCH",

@@ -1,5 +1,4 @@
-import { handleResponse } from "./apiUtils";
-import { baseUrl, baseHeader } from "./constants";
+import { handleResponse, baseUrl, baseHeader } from "./apiUtils";
 
 function getNews() {
   return fetch(`${baseUrl}/news`, {
