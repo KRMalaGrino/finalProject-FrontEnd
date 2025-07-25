@@ -6,6 +6,9 @@ function RegisterModal({
   handleEmail,
   handlePassword,
   handleUsername,
+  openLoginModal,
+  closeActiveModal,
+  onAltButtonClick,
 }) {
   return (
     <ModalWithForm
@@ -14,6 +17,8 @@ function RegisterModal({
       altButtonText="Sign in"
       isOpen={isOpen}
       onSubmit={handleSubmit}
+      closeActiveModal={closeActiveModal}
+      onAltButtonClick={openLoginModal}
     >
       <label className="modal-with-form__label" htmlFor="register-email">
         {" "}

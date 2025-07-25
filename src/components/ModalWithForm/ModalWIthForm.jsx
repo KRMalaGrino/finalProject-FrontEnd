@@ -9,6 +9,7 @@ function ModalWithForm({
   buttonText,
   altButtonText,
   activeModal,
+  onAltButtonClick,
 }) {
   // click handler for clicking outside the modal to close it
   const handleOverlayClick = (e) => {
@@ -18,7 +19,7 @@ function ModalWithForm({
   };
   // Escape key close modal
   useEffect(() => {
-    if (!activeModal) return;
+    if (!isOpen) return;
     const handleEscClose = (e) => {
       if (e.key === "Escape") {
         closeActiveModal();
@@ -30,7 +31,7 @@ function ModalWithForm({
     return () => {
       document.removeEventListener("keydown", handleEscClose);
     };
-  }, [activeModal]);
+  }, [isOpen]);
 
   return (
     <div
@@ -51,7 +52,14 @@ function ModalWithForm({
             </button>
             <div className="modal-with-form__alt-wrapper">
               <p className="modal-with-form__alt-text">or</p>
-              <button className="modal-with-form__alt-btn">
+              <button
+                className="modal-with-form__alt-btn"
+                type="button"
+                onClick={() => {
+                  closeActiveModal();
+                  onAltButtonClick();
+                }}
+              >
                 {altButtonText}
               </button>
             </div>

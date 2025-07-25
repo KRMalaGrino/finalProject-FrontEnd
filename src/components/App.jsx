@@ -98,18 +98,16 @@ function App() {
         <About />
         <Footer />
         <Preloader />
-        <ModalWithForm
-          activeModal={activeModal}
-          isOpen={activeModal === "login" || activeModal === "register"}
-          closeActiveModal={closeActiveModal}
-        />
         <LoginModal
           isOpen={activeModal === "login"}
           openRegisterModal={openRegisterModal}
+          openLoginModal={openLoginModal}
+          closeActiveModal={closeActiveModal}
         />
         <RegisterModal
           isOpen={activeModal === "register"}
           openLoginModal={openLoginModal}
+          closeActiveModal={closeActiveModal}
         />
       </div>
     </CurrentUserContext.Provider>
