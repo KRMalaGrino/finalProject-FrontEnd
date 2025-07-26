@@ -75,6 +75,7 @@ function App() {
       .signIn(email, password)
       .then((loginData) => {
         localStorage.setItem("jwt", loginData.token);
+        return loginData;
       })
       .then((user) => {
         setUserData({
@@ -82,6 +83,8 @@ function App() {
           username: user.name,
           email: user.email,
         });
+        setIsSignedIn(true);
+        closeActiveModal();
         navigate("/");
       })
       .catch(console.error);
@@ -104,7 +107,7 @@ function App() {
           setIsSignedIn(true);
           setUserData({
             _id: user._id,
-            usewrname: user.name,
+            username: user.name,
             email: user.email,
           });
         })
@@ -128,12 +131,19 @@ function App() {
   }, []);
 
   return (
-    <CurrentUserContext.Provider value={{ currentUser: isSignedIn }}>
+    <CurrentUserContext.Provider value={{ currentUser: userData, isSignedIn }}>
       <div className="app">
         <Routes>
           <Route
             path="/"
-            element={<Header openLoginModal={openLoginModal} />}
+            element={
+              <Header
+                isSignedIn={isSignedIn}
+                openLoginModal={openLoginModal}
+                userData={userData}
+                handleSignOut={handleSignOut}
+              />
+            }
           />
           <Route
             path="/saved-news"

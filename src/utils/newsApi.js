@@ -7,7 +7,7 @@ const getNews = (APIkey) => {
 };
 
 const filterSearchResults = (data) => {
-  console.log(data);
+  // console.log(data);
   return data;
 };
 
