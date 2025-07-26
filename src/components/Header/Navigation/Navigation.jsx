@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import logoutWhite from "../../../images/logout-white.png";
+import logoutWhite from "../../../images/logout-white.svg";
 
 function Navigation({ isSignedIn, openLoginModal, username, handleSignOut }) {
   return (

@@ -145,15 +145,8 @@ function App() {
               />
             }
           />
-          <Route
-            path="/saved-news"
-            element={
-              <>
-                <Main />
-              </>
-            }
-          />
         </Routes>
+        <Main />
         <About />
         <Footer />
         <Preloader />
