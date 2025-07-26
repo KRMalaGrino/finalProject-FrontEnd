@@ -70,7 +70,22 @@ function App() {
   };
 
   // handle sign in
-  const handleSignin = ({ email, password }) => {};
+  const handleSignin = ({ email, password }) => {
+    return auth
+      .signIn(email, password)
+      .then((loginData) => {
+        localStorage.setItem("jwt", loginData.token);
+      })
+      .then((user) => {
+        setUserData({
+          _id: user._id,
+          username: user.name,
+          email: user.email,
+        });
+        navigate("/");
+      })
+      .catch(console.error);
+  };
 
   // handle sign out
   const handleSignOut = () => {
@@ -80,6 +95,28 @@ function App() {
   };
 
   // use effect for checking if user is logged in
+  useEffect(() => {
+    const token = auth.getToken();
+    if (token) {
+      auth
+        .checkTokenValidity(token)
+        .then((user) => {
+          setIsSignedIn(true);
+          setUserData({
+            _id: user._id,
+            usewrname: user.name,
+            email: user.email,
+          });
+        })
+        .catch((err) => {
+          console.error("Token invalid or expired", err);
+          setIsSignedIn(false);
+          localStorage.removeItem("jwt");
+        });
+    } else {
+      setIsSignedIn(false);
+    }
+  }, []);
 
   // use effect for getting the news
   useEffect(() => {
@@ -119,6 +156,7 @@ function App() {
         <RegisterModal
           isOpen={activeModal === "register"}
           handleRegistration={handleRegistration}
+          error={registerError}
           openLoginModal={openLoginModal}
           closeActiveModal={closeActiveModal}
         />

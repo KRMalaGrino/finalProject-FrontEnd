@@ -5,6 +5,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 function RegisterModal({
   isOpen,
   handleRegistration,
+  error,
   openLoginModal,
   closeActiveModal,
 }) {
@@ -109,6 +110,9 @@ function RegisterModal({
         <span className="modal-with-form__error" id="register-password-error">
           Please enter a valid password.
         </span>
+        {error && (
+          <span className="modal-with-form__submit-error">{error}</span>
+        )}
       </label>
     </ModalWithForm>
   );

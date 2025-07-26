@@ -4,7 +4,7 @@ function getToken() {
   return localStorage.getItem("jwt");
 }
 
-function signUp(email, password, username) {
+function signUp({ email, password, name: username }) {
   return fetch(`${baseUrl}/signup`, {
     method: "POST",
     headers: baseHeader,
@@ -30,7 +30,7 @@ function checkTokenValidity(token) {
   }).then(handleResponse);
 }
 
-function editProfile(token, username, avatar, bio) {
+function editProfile({ token, name: username, avatar, bio }) {
   return fetch(`${baseUrl}/users/me`, {
     method: "PATCH",
     headers: {
