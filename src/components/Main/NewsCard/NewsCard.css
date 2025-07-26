@@ -2,18 +2,54 @@
 }
 
 .news-card__container {
+  width: 400px;
+  height: 576px;
 }
 
 .news-card__img-container {
+  width: 400px;
+  height: 272px;
+  position: relative;
 }
 
 .news-card__image {
+  width: 400px;
+  height: 272px;
+}
+
+.news-card__bookmark-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: white;
+  position: absolute;
+  top: 24px;
+  right: 24px;
 }
 
 .news-card__bookmark {
+  width: 24px;
+  height: 24px;
 }
 
 .news-card__sign-in {
+  padding: 14px 20px;
+  margin: 0;
+  position: absolute;
+  top: 24px;
+  left: 149px;
+  background-color: white;
+  border-radius: 10px;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 100%;
+  text-align: center;
+  vertical-align: middle;
+  height: 12px;
 }
 
 .news-card__text-container {
