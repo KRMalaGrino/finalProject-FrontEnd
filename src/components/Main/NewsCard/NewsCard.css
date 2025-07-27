@@ -1,4 +1,6 @@
 .news-card {
+  background-color: white;
+  border-radius: 17px;
 }
 
 .news-card__container {
@@ -15,6 +17,7 @@
 .news-card__image {
   width: 400px;
   height: 272px;
+  border-radius: 17px 17px 0 0;
 }
 
 .news-card__bookmark-container {
@@ -53,16 +56,62 @@
 }
 
 .news-card__text-container {
+  padding: 20px 24px 24px 24px;
 }
 
 .news-card__date {
+  width: 149px;
+  height: 24px;
+  margin: 0;
+  padding: 0 0 12px;
+
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  vertical-align: middle;
+  color: #b6bcbf;
 }
 
 .news-card__title {
+  width: 352px;
+  height: 60px;
+  margin: 0;
+  padding: 0 0 16px;
+
+  font-family: "Roboto Slab", "Times New Roman", Times, serif;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 30px;
+  letter-spacing: 0px;
+  color: #1a1b22;
 }
 
 .news-card__description {
+  width: 352px;
+  height: 110px;
+  margin: 0;
+  padding: 0 0 18px;
+
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0px;
+  color: #1a1b22;
 }
 
 .news-card__source {
+  width: 121px;
+  height: 20px;
+  margin: 0;
+
+  font-family: "Roboto Slab", "Times New Roman", Times, serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: #b6bcbf;
 }
