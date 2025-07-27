@@ -1,10 +1,14 @@
 import newsData from "../../utils/constants";
 import NewsCard from "./NewsCard/NewsCard";
 
-function Main() {
+function Main({ handleArticleBookmark }) {
   const renderNewsCards = () => {
     return newsData.articles.map((article, index) => (
-      <NewsCard key={index} article={article} />
+      <NewsCard
+        key={index}
+        article={article}
+        handleArticleBookmark={handleArticleBookmark}
+      />
     ));
   };
 

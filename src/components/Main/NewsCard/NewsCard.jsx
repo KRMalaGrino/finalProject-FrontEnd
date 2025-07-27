@@ -1,13 +1,29 @@
-import bookmarkNormal from "../../../images/bookmark-normal.png";
+import { useState } from "react";
 
-function NewsCard({ article }) {
-  const { urlToImage, title, description, publishedAt, source } = article;
+import bookmarkUnmarked from "../../../images/bookmark-unmarked.png";
+import bookmarkMarked from "../../../images/bookmark-unmarked.png";
+
+function NewsCard({ article, handleArticleBookmark }) {
+  const { _id, urlToImage, title, description, publishedAt, source } = article;
+  const [isBookmarked, setIsBookmarked] = useState(
+    article.isBookmarked || false
+  );
 
   const formattedDate = new Date(publishedAt).toLocaleDateString("en-US", {
     month: "long",
     day: "numeric",
     year: "numeric",
   });
+
+  const handleBookmarkClick = () => {
+    handleArticleBookmark({ _id, isBookmarked })
+      .then((updatedArticle) => {
+        setIsBookmarked(updatedArticle.isBookmarked);
+      })
+      .catch((err) => {
+        console.error("Bookmark failed:", err);
+      });
+  };
 
   return (
     <div className="news-card">
@@ -17,8 +33,9 @@ function NewsCard({ article }) {
           <div className="news-card__bookmark-container">
             <img
               className="news-card__bookmark"
-              src={bookmarkNormal}
-              alt="bookmark-normal"
+              src={isBookmarked ? bookmarkUnmarked : bookmarkMarked}
+              alt="bookmark-icon"
+              onClick={handleBookmarkClick}
             />
           </div>
           <button className="news-card__sign-in-btn" type="button">

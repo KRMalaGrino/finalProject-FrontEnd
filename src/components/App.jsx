@@ -21,6 +21,7 @@ import ModalWithForm from "./ModalWithForm/ModalWithForm";
 
 function App() {
   // use states
+  const [newsArticles, setNewsArticles] = useState("");
   const [activeModal, setActiveModal] = useState("");
   const [userData, setUserData] = useState({
     _id: "",
@@ -50,6 +51,26 @@ function App() {
 
   const closeActiveModal = () => {
     setActiveModal("");
+  };
+
+  const handleArticleBookmark = ({ _id, isBookmarked }) => {
+    const token = auth.getToken();
+
+    const apiCall = !isBookmarked
+      ? api.bookmarkArticle(_id, token)
+      : api.unbookmarkArticle(_id, token);
+
+    return apiCall
+      .then((updatedCard) => {
+        setNewsArticles((articles) =>
+          articles.map((item) => (item._id === _id ? updatedCard : item))
+        );
+        return updatedCard;
+      })
+      .catch((err) => {
+        console.error("Failed to update card like:", err);
+        throw err;
+      });
   };
 
   // handle register
@@ -146,7 +167,7 @@ function App() {
             }
           />
         </Routes>
-        <Main />
+        <Main handleArticleBookmark={handleArticleBookmark} />
         <About />
         <Footer />
         <Preloader />

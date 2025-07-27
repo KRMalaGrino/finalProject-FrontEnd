@@ -37,6 +37,13 @@
 .news-card__bookmark {
   width: 24px;
   height: 24px;
+  opacity: 0.4;
+
+  transition: opacity 0.3s linear;
+}
+
+.news-card__bookmark:hover {
+  opacity: 1;
 }
 
 .news-card__sign-in-btn {
