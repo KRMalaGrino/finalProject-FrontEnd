@@ -21,7 +21,9 @@ function NewsCard({ article }) {
               alt="bookmark-normal"
             />
           </div>
-          <p className="news-card__sign-in">Sign in to save articles</p>
+          <button className="news-card__sign-in-btn" type="button">
+            Sign in to save articles
+          </button>
         </div>
         <div className="news-card__text-container">
           <p className="news-card__date">{formattedDate}</p>

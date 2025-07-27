@@ -31,6 +31,7 @@
   position: absolute;
   top: 24px;
   right: 24px;
+  cursor: pointer;
 }
 
 .news-card__bookmark {
@@ -38,12 +39,12 @@
   height: 24px;
 }
 
-.news-card__sign-in {
-  padding: 14px 20px;
+.news-card__sign-in-btn {
+  border: none;
   margin: 0;
   position: absolute;
   top: 24px;
-  left: 149px;
+  left: 147px;
   background-color: white;
   border-radius: 10px;
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -52,7 +53,9 @@
   line-height: 100%;
   text-align: center;
   vertical-align: middle;
-  height: 12px;
+  height: 40px;
+  width: 182px;
+  cursor: pointer;
 }
 
 .news-card__text-container {
