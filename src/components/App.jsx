@@ -13,6 +13,8 @@ import * as auth from "../utils/auth";
 import Header from "./Header/Header";
 import Main from "./Main/Main";
 import About from "./About/About";
+import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
+import SavedArticles from "./SavedArticles/SavedArticles";
 import Footer from "./Footer/Footer";
 import Preloader from "./Preloader/Preloader";
 import LoginModal from "./LoginModal/LoginModal";
@@ -177,22 +179,32 @@ function App() {
           <Route
             path="/"
             element={
-              <Header
-                isSignedIn={isSignedIn}
-                openLoginModal={openLoginModal}
-                userData={userData}
-                handleSignOut={handleSignOut}
-                onSearch={handleSearch}
-              />
+              <>
+                <Header
+                  isSignedIn={isSignedIn}
+                  openLoginModal={openLoginModal}
+                  userData={userData}
+                  handleSignOut={handleSignOut}
+                  onSearch={handleSearch}
+                />
+                <Main
+                  articles={articles}
+                  handleArticleBookmark={handleArticleBookmark}
+                />
+                <About />
+                <Footer />
+              </>
             }
           />
+          <Route
+            path="saved-articles"
+            element={
+              <ProtectedRoute isSignedIn={isSignedIn}>
+                <SavedArticles />
+              </ProtectedRoute>
+            }
+          ></Route>
         </Routes>
-        <Main
-          articles={articles}
-          handleArticleBookmark={handleArticleBookmark}
-        />
-        <About />
-        <Footer />
         <Preloader />
         <LoginModal
           isOpen={activeModal === "login"}

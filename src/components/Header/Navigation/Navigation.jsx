@@ -10,17 +10,17 @@ function Navigation({ isSignedIn, openLoginModal, username, handleSignOut }) {
       </Link>
       {isSignedIn ? (
         <>
-          <Link to="/saved-news">
+          <Link to="/saved-articles">
             <button className="navigation__saved-articles">
               Saved articles
             </button>
           </Link>
           <div className="navigation__author-wrapper">
-            <Link to="/about">
+            <a href="#about" className="navigation__author-link">
               <button className="navigation__author" type="button">
                 {username || "User"}
               </button>
-            </Link>
+            </a>
             <button
               className="navigation__logout-button"
               onClick={handleSignOut}
