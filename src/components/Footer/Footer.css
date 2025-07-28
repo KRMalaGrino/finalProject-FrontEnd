@@ -42,6 +42,11 @@
   gap: 24px;
 }
 
+/* .footer__a {
+} */
+
 .footer__icon {
   cursor: pointer;
+  width: 24px;
+  height: 24px;
 }

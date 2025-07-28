@@ -1,34 +1,49 @@
 import { Link } from "react-router-dom";
 
 import githubIcon from "../../images/github-icon.png";
-import facebookIcon from "../../images/facebook-icon.png";
+import instagramIcon from "../../images/instagram-icon.png";
 
 function Footer() {
   return (
     <div className="footer">
       <p className="footer__text">© 2024 Supersite, Powered by News API</p>
       <div className="footer__link-wrapper">
-        <Link>
+        <Link to="/">
           <button className="footer__link-text" type="button">
             Home
           </button>
         </Link>
-        <Link>
+        <a
+          href="https://tripleten.com/home/web/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="footer__a"
+        >
           <button className="footer__link-text" type="button">
             TripleTen
           </button>
-        </Link>
+        </a>
         <div className="footer__icon-wrapper">
-          <Link>
+          <a
+            href="https://github.com/KRMalaGrino"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer__a"
+          >
             <img className="footer__icon" src={githubIcon} alt="github icon" />
-          </Link>
-          <Link>
+          </a>
+          <a
+            href="https://www.instagram.com/kr_malagrino/?hl=en"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer__a"
+          >
             <img
               className="footer__icon"
-              src={facebookIcon}
+              src={instagramIcon}
               alt="facebook icon"
             />
-          </Link>
+          </a>
         </div>
       </div>
     </div>

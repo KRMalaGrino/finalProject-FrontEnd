@@ -1,9 +1,8 @@
-import newsData from "../../utils/constants";
 import NewsCard from "./NewsCard/NewsCard";
 
-function Main({ handleArticleBookmark }) {
+function Main({ articles, handleArticleBookmark }) {
   const renderNewsCards = () => {
-    return newsData.articles.map((article, index) => (
+    return articles.map((article, index) => (
       <NewsCard
         key={index}
         article={article}
@@ -16,9 +15,11 @@ function Main({ handleArticleBookmark }) {
     <div className="main">
       <p className="main__title">Search results</p>
       <div className="main__news-card-container">{renderNewsCards()}</div>
-      <button className="main__show-more-btn" type="button">
-        Show more
-      </button>
+      {articles.length > 0 && (
+        <button className="main__show-more-btn" type="button">
+          Show more
+        </button>
+      )}
     </div>
   );
 }

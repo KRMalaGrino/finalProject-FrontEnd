@@ -4,7 +4,7 @@ import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
 // context
 import CurrentUserContext from "../contexts/CurrentUserContext";
 // utils
-import newsData from "../utils/constants";
+// import newsData from "../utils/constants";
 import { APIkey } from "../utils/apiUtils";
 import { getNews, filterSearchResults } from "../utils/newsApi";
 import * as api from "../utils/api";
@@ -17,11 +17,13 @@ import Footer from "./Footer/Footer";
 import Preloader from "./Preloader/Preloader";
 import LoginModal from "./LoginModal/LoginModal";
 import RegisterModal from "./RegisterModal/RegisterModal";
-import ModalWithForm from "./ModalWithForm/ModalWithForm";
 
 function App() {
   // use states
   const [newsArticles, setNewsArticles] = useState("");
+  const [articles, setArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const [activeModal, setActiveModal] = useState("");
   const [userData, setUserData] = useState({
     _id: "",
@@ -52,6 +54,23 @@ function App() {
   const closeActiveModal = () => {
     setActiveModal("");
   };
+
+  function handleSearch(keyword) {
+    setIsLoading(true);
+    setErrorMessage("");
+
+    getNews(keyword)
+      .then((data) => {
+        setArticles(data.articles);
+      })
+      .catch((err) => {
+        console.error("Error fetching news:", err.message);
+        setErrorMessage("Could not fetch news. Please try again later.");
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }
 
   const handleArticleBookmark = ({ _id, isBookmarked }) => {
     const token = auth.getToken();
@@ -163,11 +182,15 @@ function App() {
                 openLoginModal={openLoginModal}
                 userData={userData}
                 handleSignOut={handleSignOut}
+                onSearch={handleSearch}
               />
             }
           />
         </Routes>
-        <Main handleArticleBookmark={handleArticleBookmark} />
+        <Main
+          articles={articles}
+          handleArticleBookmark={handleArticleBookmark}
+        />
         <About />
         <Footer />
         <Preloader />

@@ -6,7 +6,7 @@ function Header({
   openLoginModal,
   userData,
   handleSignOut,
-  setActiveView,
+  onSearch,
 }) {
   return (
     <div className="header-searchForm__wrapper">
@@ -18,7 +18,7 @@ function Header({
           handleSignOut={handleSignOut}
         />
       </div>
-      <SearchForm />
+      <SearchForm onSearch={onSearch} />
     </div>
   );
 }
