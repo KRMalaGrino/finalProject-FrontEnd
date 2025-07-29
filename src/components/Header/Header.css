@@ -53,3 +53,8 @@
 
   cursor: pointer;
 }
+
+.header__link {
+  text-decoration: none;
+  list-style: none;
+}

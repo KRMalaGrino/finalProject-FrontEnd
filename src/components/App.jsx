@@ -36,6 +36,7 @@ function App() {
   const [registerError, setRegisterError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
+  const isSavedArticlesPage = location.pathname === "/saved-articles";
 
   const openRegisterModal = () => {
     setActiveModal("register");
@@ -175,24 +176,24 @@ function App() {
   return (
     <CurrentUserContext.Provider value={{ currentUser: userData, isSignedIn }}>
       <div className="app">
+        <Header
+          isSignedIn={isSignedIn}
+          openLoginModal={openLoginModal}
+          userData={userData}
+          handleSignOut={handleSignOut}
+          onSearch={handleSearch}
+          showSearch={!isSavedArticlesPage}
+        />
         <Routes>
           <Route
             path="/"
             element={
               <>
-                <Header
-                  isSignedIn={isSignedIn}
-                  openLoginModal={openLoginModal}
-                  userData={userData}
-                  handleSignOut={handleSignOut}
-                  onSearch={handleSearch}
-                />
                 <Main
                   articles={articles}
                   handleArticleBookmark={handleArticleBookmark}
                 />
                 <About />
-                <Footer />
               </>
             }
           />
@@ -200,11 +201,15 @@ function App() {
             path="saved-articles"
             element={
               <ProtectedRoute isSignedIn={isSignedIn}>
-                <SavedArticles />
+                <SavedArticles
+                  articles={articles}
+                  handleArticleBookmark={handleArticleBookmark}
+                />
               </ProtectedRoute>
             }
           ></Route>
         </Routes>
+        <Footer />
         <Preloader />
         <LoginModal
           isOpen={activeModal === "login"}
