@@ -58,3 +58,15 @@
   text-decoration: none;
   list-style: none;
 }
+
+.header__saved-title-container {
+  padding: 0 104px;
+  z-index: 1;
+}
+
+.header__saved-title {
+  color: #1a1b22;
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 40px;
+}
