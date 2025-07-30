@@ -204,10 +204,12 @@ function App() {
             path="/"
             element={
               <>
-                <Main
-                  articles={articles}
-                  handleArticleBookmark={handleArticleBookmark}
-                />
+                {articles.length > 0 && (
+                  <Main
+                    articles={articles}
+                    handleArticleBookmark={handleArticleBookmark}
+                  />
+                )}
                 <About />
               </>
             }
