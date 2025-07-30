@@ -1,10 +1,19 @@
 import { Link } from "react-router-dom";
 
 import logoutWhite from "../../../images/logout-white.svg";
+import logoutBlack from "../../../images/logout-black.png";
 
-function Navigation({ isSignedIn, openLoginModal, username, handleSignOut }) {
+function Navigation({
+  isSignedIn,
+  openLoginModal,
+  username,
+  handleSignOut,
+  isSavedArticlesPage,
+}) {
   return (
-    <nav className="navigation">
+    <nav
+      className={`navigation ${isSavedArticlesPage ? "navigation--saved" : ""}`}
+    >
       <Link to="/">
         <button className="navigation__home">Home</button>
       </Link>
@@ -15,7 +24,11 @@ function Navigation({ isSignedIn, openLoginModal, username, handleSignOut }) {
               Saved articles
             </button>
           </Link>
-          <div className="navigation__author-wrapper">
+          <div
+            className={`navigation__author-wrapper ${
+              isSavedArticlesPage ? "navigation__author-wrapper--saved" : ""
+            }`}
+          >
             <a href="#about" className="navigation__author-link">
               <button className="navigation__author" type="button">
                 {username || "User"}
@@ -27,7 +40,7 @@ function Navigation({ isSignedIn, openLoginModal, username, handleSignOut }) {
             >
               <img
                 className="navigation__exit-icon"
-                src={logoutWhite}
+                src={isSavedArticlesPage ? logoutBlack : logoutWhite}
                 alt="logout icon"
               />
             </button>

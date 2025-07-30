@@ -6,7 +6,7 @@ import CurrentUserContext from "../contexts/CurrentUserContext";
 // utils
 // import newsData from "../utils/constants";
 import { APIkey } from "../utils/apiUtils";
-import { getNews, filterSearchResults } from "../utils/newsApi";
+import * as newsApi from "../utils/newsApi";
 import * as api from "../utils/api";
 import * as auth from "../utils/auth";
 // components
@@ -22,7 +22,6 @@ import RegisterModal from "./RegisterModal/RegisterModal";
 
 function App() {
   // use states
-  const [newsArticles, setNewsArticles] = useState("");
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -62,7 +61,8 @@ function App() {
     setIsLoading(true);
     setErrorMessage("");
 
-    getNews(keyword)
+    newsApi
+      .getNews(keyword)
       .then((data) => {
         setArticles(data.articles);
       })
@@ -84,8 +84,8 @@ function App() {
 
     return apiCall
       .then((updatedCard) => {
-        setNewsArticles((articles) =>
-          articles.map((item) => (item._id === _id ? updatedCard : item))
+        setArticles((prevArticles) =>
+          prevArticles.map((item) => (item._id === _id ? updatedCard : item))
         );
         return updatedCard;
       })
@@ -164,14 +164,29 @@ function App() {
     }
   }, []);
 
-  // use effect for getting the news
+  // Loading bookmarked articles on /saved-articles route
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      filterSearchResults(newsData);
-    }, 500);
+    if (isSignedIn && isSavedArticlesPage) {
+      const token = auth.getToken();
+      api
+        .getSavedArticles(token)
+        .then((savedArticles) => {
+          setArticles(savedArticles);
+        })
+        .catch((err) => {
+          console.error("Error loading saved articles:", err);
+        });
+    }
+  }, [isSignedIn, isSavedArticlesPage]);
 
-    return () => clearTimeout(timeout);
-  }, []);
+  // use effect for getting the news
+  // useEffect(() => {
+  //   const timeout = setTimeout(() => {
+  //     filterSearchResults(newsData);
+  //   }, 500);
+
+  //   return () => clearTimeout(timeout);
+  // }, []);
 
   return (
     <CurrentUserContext.Provider value={{ currentUser: userData, isSignedIn }}>
@@ -210,7 +225,7 @@ function App() {
           ></Route>
         </Routes>
         <Footer />
-        <Preloader />
+        {isLoading && <Preloader />}
         <LoginModal
           isOpen={activeModal === "login"}
           openRegisterModal={openRegisterModal}

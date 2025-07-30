@@ -14,6 +14,10 @@ function Header({
   const isHomePage = location.pathname === "/";
   const isSavedArticlesPage = location.pathname === "/saved-articles";
 
+  const wrapperClassName = `header ${
+    isSavedArticlesPage ? "header--saved" : ""
+  }`;
+
   return (
     <div
       className={
@@ -22,7 +26,7 @@ function Header({
           : "header-searchForm__wrapper"
       }
     >
-      <div className="header">
+      <div className={wrapperClassName}>
         <Link to="/" className="header__link">
           <p className="header__title">NewsExplorer</p>
         </Link>
@@ -31,6 +35,7 @@ function Header({
           openLoginModal={openLoginModal}
           handleSignOut={handleSignOut}
           username={userData?.name}
+          isSavedArticlesPage={isSavedArticlesPage}
         />
       </div>
 
@@ -38,7 +43,13 @@ function Header({
 
       {isSavedArticlesPage && (
         <div className="header__saved-title-container">
-          <h2 className="header__saved-title">Saved articles</h2>
+          <p className="header__saved-title">Saved articles</p>
+          <p className="header__total">Ryan, you have __ saved articles</p>
+          <p className="header__keywords">
+            By keywords: <span className="header__keywords-bold">keyword, keyword and __ others</span>
+          </p>
+          {/* <p className="header__total">{`${user}, you have ${total} saved articles`}</p>
+          <p>{`By keywords: ${keywords} and ${total-left} others`}</p> */}
         </div>
       )}
     </div>

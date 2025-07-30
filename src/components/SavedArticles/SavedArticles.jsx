@@ -13,11 +13,10 @@ function SavedArticles({ articles, handleArticleBookmark }) {
 
   return (
     <main className="savedArticles">
-      <div className="savedArticles__news-card-container">
-        {renderNewsCards()}
-      </div>
       {articles.length > 0 ? (
-        renderNewsCards()
+        <div className="savedArticles__news-card-container">
+          {renderNewsCards()}
+        </div>
       ) : (
         <p className="savedArticles__no-articles">No saved articles yet.</p>
       )}

@@ -77,6 +77,10 @@ html {
   background-color: transparent;
 }
 
+.navigation__author-wrapper--saved {
+  border: 1px solid black;
+}
+
 .navigation__author-link {
 }
 
@@ -96,7 +100,14 @@ html {
 }
 
 .navigation__exit-icon {
-  padding: 0;
+  padding: 3px 0 0;
   background-color: transparent;
   cursor: pointer;
+}
+
+.navigation--saved button,
+.navigation--saved .navigation__author {
+  color: black;
+  background: transparent;
+  border: white;
 }

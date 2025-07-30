@@ -1,11 +1,5 @@
 import { handleResponse, baseUrl, baseHeader } from "./apiUtils";
 
-function getNews() {
-  return fetch(`${baseUrl}/news`, {
-    headers: baseHeader,
-  }).then(handleResponse);
-}
-
 function saveArticle(article, token) {
   return fetch(`${baseUrl}/news`, {
     method: "POST",
@@ -38,10 +32,16 @@ function unbookmarkArticle(id, token) {
   }).then(handleResponse);
 }
 
+function getSavedArticles(token) {
+  return fetch(`${baseUrl}/news`, {
+    headers: { ...baseHeader, Authorization: `Bearer ${token}` },
+  }).then(handleResponse);
+}
+
 export {
-  getNews,
   saveArticle,
   deleteArticle,
   bookmarkArticle,
   unbookmarkArticle,
+  getSavedArticles,
 };

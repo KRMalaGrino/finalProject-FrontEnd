@@ -66,7 +66,47 @@
 
 .header__saved-title {
   color: #1a1b22;
-  font-size: 30px;
-  font-weight: bold;
-  margin-top: 40px;
+  margin: 40px 0 28px 0;
+  width: 712px;
+  height: 24px;
+
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  color: #1a1b2280;
+}
+
+.header__total {
+  margin: 0 0 30px;
+  width: 530px;
+  height: 92px;
+
+  font-family: "Roboto Slab", "Times New Roman", Times, serif;
+  font-size: 40px;
+  line-height: 46px;
+}
+
+.header__keywords {
+  margin: 0 0 56px;
+  width: 712px;
+  height: 24px;
+
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.header__keywords-bold {
+  width: 712px;
+  height: 24px;
+
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.header--saved .header__title {
+  color: black;
 }
