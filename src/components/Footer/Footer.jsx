@@ -1,15 +1,30 @@
-import { Link } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 
 import githubIcon from "../../images/github-icon.png";
 import instagramIcon from "../../images/instagram-icon.png";
 
 function Footer() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleHomeClick = () => {
+    if (location.pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      navigate("/");
+    }
+  };
+
   return (
     <div className="footer">
       <p className="footer__text">© 2024 Supersite, Powered by News API</p>
       <div className="footer__link-wrapper">
         <Link to="/">
-          <button className="footer__link-text" type="button">
+          <button
+            className="footer__link-text"
+            type="button"
+            onClick={handleHomeClick}
+          >
             Home
           </button>
         </Link>
