@@ -6,7 +6,7 @@ function Main({ articles, handleArticleBookmark }) {
   const [visibleCount, setVisibleCount] = useState(3);
 
   const handleShowMore = () => {
-    setVisibleCount((prevCount) => prevCount + 9);
+    setVisibleCount((prevCount) => prevCount + 3);
   };
 
   const renderNewsCards = () => {
