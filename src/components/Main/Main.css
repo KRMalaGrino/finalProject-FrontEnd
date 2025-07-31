@@ -40,3 +40,14 @@
   border: none;
   cursor: pointer;
 }
+
+.main__error {
+  text-align: center;
+  font-size: 18px;
+  color: red;
+  margin: 40px auto;
+  background-image: url("../../images/not-found.png");
+
+  width: 82.5px;
+  height: 82.5px;
+}

@@ -24,6 +24,7 @@ function App() {
   // use states
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [hasSearched, setHasSearched] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [activeModal, setActiveModal] = useState("");
   const [userData, setUserData] = useState({
@@ -60,6 +61,7 @@ function App() {
   function handleSearch(keyword) {
     setIsLoading(true);
     setErrorMessage("");
+    setHasSearched(true);
 
     newsApi
       .getNews(keyword)
@@ -204,7 +206,10 @@ function App() {
             path="/"
             element={
               <>
-                {articles.length > 0 && (
+                {hasSearched && !isLoading && errorMessage && (
+                  <div className="main__error">{errorMessage}</div>
+                )}
+                {articles.length > 0 && !isLoading && (
                   <Main
                     articles={articles}
                     handleArticleBookmark={handleArticleBookmark}
