@@ -34,7 +34,14 @@
   cursor: pointer;
 }
 
-.news-card__bookmark {
+.news-card__bookmark-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.news-card__bookmark-icon {
   width: 24px;
   height: 24px;
   opacity: 0.4;
@@ -42,27 +49,24 @@
   transition: opacity 0.3s linear;
 }
 
-.news-card__bookmark:hover {
+.news-card__bookmark-icon:hover {
   opacity: 1;
 }
 
-.news-card__sign-in-btn {
-  border: none;
-  margin: 0;
+.news-card__tooltip {
   position: absolute;
-  top: 24px;
-  left: 147px;
-  background-color: white;
-  border-radius: 10px;
+  top: 50px;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #ffffff;
+  padding: 6px 10px;
+  border-radius: 4px;
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 500;
   font-size: 12px;
-  line-height: 100%;
-  text-align: center;
-  vertical-align: middle;
-  height: 40px;
-  width: 182px;
-  cursor: pointer;
+  line-height: 14px;
+  white-space: nowrap;
+  z-index: 2;
+  pointer-events: none;
 }
 
 .news-card__text-container {

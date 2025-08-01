@@ -68,7 +68,16 @@ function App() {
     newsApi
       .getNews(keyword)
       .then((data) => {
-        setArticles(data.articles);
+        const normalizedArticles = data.articles.map((article, index) => ({
+          _id: article.url || `${index}-${Date.now()}`,
+          title: article.title || "No title",
+          description: article.description || "No description available",
+          publishedAt: article.publishedAt || null,
+          source: { name: article.source.name || "Unknown source" },
+          urlToImage: article.urlToImage,
+          isBookmarked: false,
+        }));
+        setArticles(normalizedArticles);
       })
       .catch((err) => {
         console.error("Error fetching news:", err.message);
@@ -82,18 +91,28 @@ function App() {
   }
 
   const handleArticleBookmark = ({ _id, isBookmarked }) => {
-    const token = auth.getToken();
+    const token = localStorage.getItem("jwt");
+
+    // if (isBookmarked) {
+    //   return api.unbookmarkArticle(_id, token);
+    // } else {
+    //   return api.bookmarkArticle(_id, token);
+    // }
 
     const apiCall = !isBookmarked
       ? api.bookmarkArticle(_id, token)
       : api.unbookmarkArticle(_id, token);
 
     return apiCall
-      .then((updatedCard) => {
+      .then((updatedArticle) => {
         setArticles((prevArticles) =>
-          prevArticles.map((item) => (item._id === _id ? updatedCard : item))
+          prevArticles.map((article) =>
+            article._id === _id
+              ? { ...article, isBookmarked: updatedArticle.isBookmarked }
+              : article
+          )
         );
-        return updatedCard;
+        return updatedArticle;
       })
       .catch((err) => {
         console.error("Failed to update card like:", err);

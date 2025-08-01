@@ -20,4 +20,9 @@ function handleResponse(res) {
   });
 }
 
-export { handleResponse, APIkey, baseUrl, baseHeader };
+function formatDate(isoDate) {
+  const options = { year: "numeric", month: "long", day: "numeric" };
+  return new Date(isoDate).toLocaleDateString("en-US", options);
+}
+
+export { APIkey, baseUrl, baseHeader, handleResponse, formatDate };
