@@ -72,7 +72,9 @@ function App() {
       })
       .catch((err) => {
         console.error("Error fetching news:", err.message);
-        setErrorMessage("Could not fetch news. Please try again later.");
+        setErrorMessage(
+          "Sorry, something went wrong during the request. Please try again later."
+        );
       })
       .finally(() => {
         setIsLoading(false);

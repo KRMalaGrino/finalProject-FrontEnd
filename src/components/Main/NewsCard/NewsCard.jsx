@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import bookmarkUnmarked from "../../../images/bookmark-unmarked.png";
-import bookmarkMarked from "../../../images/bookmark-unmarked.png";
+import bookmarkMarked from "../../../images/bookmark-marked.png";
 
 function NewsCard({ article, handleArticleBookmark }) {
   const { _id, urlToImage, title, description, publishedAt, source } = article;
@@ -33,7 +33,7 @@ function NewsCard({ article, handleArticleBookmark }) {
           <div className="news-card__bookmark-container">
             <img
               className="news-card__bookmark"
-              src={isBookmarked ? bookmarkUnmarked : bookmarkMarked}
+              src={isBookmarked ? bookmarkMarked : bookmarkUnmarked}
               alt="bookmark-icon"
               onClick={handleBookmarkClick}
             />

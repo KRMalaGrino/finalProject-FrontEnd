@@ -1,20 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import NewsCard from "./NewsCard/NewsCard";
 
 function Main({ articles, handleArticleBookmark }) {
   const [visibleCount, setVisibleCount] = useState(3);
 
+  useEffect(() => {
+    setVisibleCount(3);
+  }, [articles]);
+
   const handleShowMore = () => {
-    setVisibleCount((prevCount) => prevCount + 3);
+    setVisibleCount((prevCount) => Math.min(prevCount + 3, articles.length));
   };
 
   const renderNewsCards = () => {
     return articles
       .slice(0, visibleCount)
-      .map((article, index) => (
+      .map((article) => (
         <NewsCard
-          key={index}
+          key={article._id}
           article={article}
           handleArticleBookmark={handleArticleBookmark}
         />
