@@ -20,6 +20,8 @@ import Preloader from "./Preloader/Preloader";
 import LoginModal from "./LoginModal/LoginModal";
 import RegisterModal from "./RegisterModal/RegisterModal";
 
+import NothingFound from "../images/not-found.png";
+
 function App() {
   // use states
   const [articles, setArticles] = useState([]);
@@ -209,6 +211,24 @@ function App() {
                 {hasSearched && !isLoading && errorMessage && (
                   <div className="main__error">{errorMessage}</div>
                 )}
+
+                {hasSearched &&
+                  !isLoading &&
+                  articles.length === 0 &&
+                  !errorMessage && (
+                    <div className="main__nothing-found-container">
+                      <img
+                        className="main__nothing-found-img"
+                        src={NothingFound}
+                        alt="nothing-found-image"
+                      />
+                      <p className="main__nothing-found-title">Nothing found</p>
+                      <p className="main__nothing-found-description">
+                        Sorry, but nothing matched your search terms.
+                      </p>
+                    </div>
+                  )}
+
                 {articles.length > 0 && !isLoading && (
                   <Main
                     articles={articles}
