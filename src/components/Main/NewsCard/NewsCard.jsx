@@ -6,18 +6,23 @@ import bookmarkUnmarked from "../../../images/bookmark-unmarked.png";
 import bookmarkMarked from "../../../images/bookmark-marked.png";
 
 function NewsCard({ article, handleArticleBookmark }) {
-  const { _id, urlToImage, title, description, publishedAt, source } = article;
-  const [isBookmarked, setIsBookmarked] = useState(
-    article.isBookmarked || false
-  );
+  const {
+    _id,
+    urlToImage,
+    title,
+    description,
+    publishedAt,
+    source,
+    isBookmarked,
+  } = article;
   const [showTooltip, setShowTooltip] = useState(false);
   const { isSignedIn } = useContext(CurrentUserContext);
 
   const handleBookmarkClick = () => {
     if (!isSignedIn) return;
-    handleArticleBookmark({ _id, isBookmarked })
-      .then((updatedArticle) => {
-        setIsBookmarked(updatedArticle.isBookmarked);
+    handleArticleBookmark(article)
+      .catch((err) => {
+        console.error("Bookmark failed:", err);
       })
       .catch((err) => {
         console.error("Bookmark failed:", err);

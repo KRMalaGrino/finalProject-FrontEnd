@@ -90,34 +90,42 @@ function App() {
       });
   }
 
-  const handleArticleBookmark = ({ _id, isBookmarked }) => {
+  const handleArticleBookmark = (article) => {
     const token = localStorage.getItem("jwt");
 
-    // if (isBookmarked) {
-    //   return api.unbookmarkArticle(_id, token);
-    // } else {
-    //   return api.bookmarkArticle(_id, token);
-    // }
+    if (!token) return;
 
-    const apiCall = !isBookmarked
-      ? api.bookmarkArticle(_id, token)
-      : api.unbookmarkArticle(_id, token);
+    const { _id, isBookmarked } = article;
 
-    return apiCall
-      .then((updatedArticle) => {
-        setArticles((prevArticles) =>
-          prevArticles.map((article) =>
-            article._id === _id
-              ? { ...article, isBookmarked: updatedArticle.isBookmarked }
-              : article
-          )
-        );
-        return updatedArticle;
-      })
-      .catch((err) => {
-        console.error("Failed to update card like:", err);
-        throw err;
-      });
+    if (!isBookmarked) {
+      return api
+        .saveArticle(article, token)
+        .then((savedArticle) => {
+          return api.bookmarkArticle(savedArticle._id, token).then(() => {
+            updateArticleBookmark(savedArticle._id, true);
+          });
+        })
+        .catch((err) => {
+          console.error("Bookmark failed:", err);
+        });
+    } else {
+      return api
+        .unbookmarkArticle(_id, token)
+        .then(() => {
+          updateArticleBookmark(_id, false);
+        })
+        .catch((err) => {
+          console.error("Unbookmark failed:", err);
+        });
+    }
+  };
+
+  const updateArticleBookmark = (articleId, status) => {
+    setArticles((prevArticles) =>
+      prevArticles.map((a) =>
+        a._id === articleId ? { ...a, isBookmarked: status } : a
+      )
+    );
   };
 
   // handle register

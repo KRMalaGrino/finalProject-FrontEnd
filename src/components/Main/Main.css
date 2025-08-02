@@ -86,7 +86,8 @@
   color: red;
   margin: 40px auto;
   background-image: url("../../images/not-found.png");
+  background-repeat: no-repeat;
 
-  width: 82.5px;
+  width: 282.5px;
   height: 82.5px;
 }
