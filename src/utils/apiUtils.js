@@ -2,10 +2,13 @@ const APIkey = "9bc7acfcbd9e489da102f219d54595db";
 
 const baseUrl =
   process.env.NODE_ENV === "production"
-    ? "http://localhost:3001"
-    : "https://newsapi.org/v2/everything";
+    ? "https://newsapi.org/v2/everything"
+    : "http://localhost:3001";
 
 const baseHeader = { "Content-Type": "application/json" };
+
+const FAKE_TOKEN = "fake-jwt-token";
+const STORAGE_KEY = "savedArticles";
 
 function handleResponse(res) {
   if (res.ok) {
@@ -25,4 +28,12 @@ function formatDate(isoDate) {
   return new Date(isoDate).toLocaleDateString("en-US", options);
 }
 
-export { APIkey, baseUrl, baseHeader, handleResponse, formatDate };
+export {
+  APIkey,
+  baseUrl,
+  baseHeader,
+  FAKE_TOKEN,
+  STORAGE_KEY,
+  handleResponse,
+  formatDate,
+};
