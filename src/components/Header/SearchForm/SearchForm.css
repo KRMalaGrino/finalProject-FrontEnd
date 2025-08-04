@@ -73,3 +73,18 @@
 
   cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+  .searchForm__title {
+    padding: 38px 0 16px;
+  }
+
+  .searchForm__description {
+    padding: 0 0 48px 0;
+  }
+
+  .searchForm__form {
+    width: 452px;
+    height: 56px;
+  }
+}

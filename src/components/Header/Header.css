@@ -110,3 +110,15 @@
 .header--saved .header__title {
   color: black;
 }
+
+@media screen and (max-width: 768px) {
+  .header-searchForm__wrapper {
+    height: 460px;
+  }
+
+  .header {
+    padding: 40px;
+    align-items: center;
+    height: 66px;
+  }
+}
