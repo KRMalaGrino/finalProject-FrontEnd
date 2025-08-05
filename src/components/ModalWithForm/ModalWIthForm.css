@@ -198,3 +198,10 @@
   cursor: pointer;
   transition: opacity 0.25s linear;
 }
+
+@media screen and (max-width: 768px) {
+  .modal-with-form__label {
+    margin: 25px 0 0;
+    gap: 0;
+  }
+}
