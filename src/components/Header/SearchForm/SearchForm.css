@@ -77,10 +77,26 @@
 @media screen and (max-width: 768px) {
   .searchForm__title {
     padding: 38px 0 16px;
+    width: 385px;
+    height: 80px;
+
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 40px;
+    letter-spacing: 0px;
   }
 
   .searchForm__description {
     padding: 0 0 48px 0;
+    width: 452px;
+    height: 48px;
+
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0px;
   }
 
   .searchForm__form {

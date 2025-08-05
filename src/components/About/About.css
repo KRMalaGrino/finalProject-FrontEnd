@@ -48,3 +48,32 @@
   font-size: 18px;
   line-height: 24px;
 }
+
+@media screen and (max-width: 768px) {
+  .about__wrapper {
+    margin: 61px 216px 61px 40px;
+  }
+
+  .about__avatar {
+    width: 232px;
+    height: 232px;
+  }
+
+  .about__title {
+    font-family: "Roboto Slab", "Times New Roman", Times, serif;
+    margin: 0 0 16px;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 40px;
+    letter-spacing: 0px;
+  }
+
+  .about__description {
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    width: 424px;
+  }
+}
