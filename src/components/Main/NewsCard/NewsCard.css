@@ -104,7 +104,6 @@
 
 .news-card__description {
   width: 352px;
-  height: 110px;
   margin: 0;
   padding: 0 0 18px;
 
@@ -114,6 +113,12 @@
   line-height: 22px;
   letter-spacing: 0px;
   color: #1a1b22;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .news-card__source {
@@ -148,6 +153,11 @@
 
   .news-card__text-container {
     padding: 16px 16px 16px 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .news-card__title {
@@ -169,5 +179,23 @@
     font-size: 16px;
     line-height: 22px;
     letter-spacing: 0px;
+  }
+
+  .news-card__source {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.4px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .news-card__container {
+    width: 288px;
+    height: 440px;
+  }
+
+  .news-card__image {
+    width: 288px;
   }
 }

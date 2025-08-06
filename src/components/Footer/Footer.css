@@ -53,3 +53,13 @@
     padding: 0 40px;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .footer {
+    flex-direction: column-reverse;
+  }
+
+  .footer__link-text {
+    order: 10;
+  }
+}

@@ -104,3 +104,15 @@
     height: 56px;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .searchForm__title {
+    width: 285px;
+    height: 80px;
+  }
+
+  .searchForm__description {
+    width: 288px;
+    height: 72px;
+  }
+}
