@@ -1,11 +1,13 @@
 import { useState, useContext } from "react";
+import { useLocation } from "react-router-dom";
 import CurrentUserContext from "../../../contexts/CurrentUserContext";
 import { formatDate } from "../../../utils/apiUtils";
 
 import bookmarkUnmarked from "../../../images/bookmark-unmarked.png";
 import bookmarkMarked from "../../../images/bookmark-marked.png";
+import trashIcon from "../../../images/trash-white.png";
 
-function NewsCard({ article, handleArticleBookmark }) {
+function NewsCard({ article, handleArticleBookmark, onDelete }) {
   const {
     _id,
     urlToImage,
@@ -18,6 +20,8 @@ function NewsCard({ article, handleArticleBookmark }) {
   } = article;
   const [showTooltip, setShowTooltip] = useState(false);
   const { isSignedIn } = useContext(CurrentUserContext);
+  const location = useLocation();
+  const isSavedArticlesPage = location.pathname === "/saved-articles";
 
   const handleBookmarkClick = () => {
     if (!isSignedIn) return;
@@ -34,7 +38,11 @@ function NewsCard({ article, handleArticleBookmark }) {
     <div className="news-card">
       <div className="news-card__container">
         <div className="news-card__img-container">
-          <img className="news-card__image" src={urlToImage} alt={title} />
+          <img
+            className="news-card__image"
+            src={urlToImage || null}
+            alt={title}
+          />
 
           {keyword && <div className="news-card__keyword">{keyword}</div>}
 
@@ -45,14 +53,32 @@ function NewsCard({ article, handleArticleBookmark }) {
           >
             <button
               className="news-card__bookmark-button"
-              onClick={handleBookmarkClick}
+              onClick={() => {
+                if (isSavedArticlesPage && onDelete) {
+                  onDelete(article._id);
+                } else {
+                  handleBookmarkClick();
+                }
+              }}
               type="button"
               disabled={!isSignedIn}
             >
               <img
                 className="news-card__bookmark-icon"
-                src={isBookmarked ? bookmarkMarked : bookmarkUnmarked}
-                alt={isBookmarked ? "Saved" : "Save"}
+                src={
+                  isSavedArticlesPage
+                    ? trashIcon
+                    : isBookmarked
+                    ? bookmarkMarked
+                    : bookmarkUnmarked
+                }
+                alt={
+                  isSavedArticlesPage
+                    ? "Delete"
+                    : isBookmarked
+                    ? "Saved"
+                    : "Save"
+                }
               />
             </button>
             {!isSignedIn && showTooltip && (

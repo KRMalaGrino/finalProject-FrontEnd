@@ -127,6 +127,14 @@ function App() {
           );
           delete keywordsMap[_id];
           localStorage.setItem("articleKeywords", JSON.stringify(keywordsMap));
+
+          if (isSavedArticlesPage) {
+            setArticles((prevArticles) =>
+              prevArticles.filter((a) => a._id !== _id)
+            );
+          } else {
+            updateArticleBookmark(_id, false);
+          }
         })
         .catch((err) => {
           console.error("Unbookmark failed:", err);
@@ -141,6 +149,18 @@ function App() {
       )
     );
   };
+
+  function handleDeleteArticle(articleId) {
+    const token = localStorage.getItem("jwt");
+    api
+      .deleteArticle(articleId, token)
+      .then(() => {
+        setArticles((prevArticles) =>
+          prevArticles.filter((article) => article._id !== articleId)
+        );
+      })
+      .catch((err) => console.error("Error deleting article:", err));
+  }
 
   // handle register
   const handleRegistration = ({ email, password, username }) => {
@@ -243,6 +263,7 @@ function App() {
           const articlesWithKeyword = savedArticles.map((article) => ({
             ...article,
             keyword: keywordsMap[article._id] || "unknown", // fallback keyword
+            isBookmarked: true,
           }));
 
           setArticles(articlesWithKeyword);
@@ -252,15 +273,6 @@ function App() {
         });
     }
   }, [isSignedIn, isSavedArticlesPage]);
-
-  // use effect for getting the news
-  // useEffect(() => {
-  //   const timeout = setTimeout(() => {
-  //     filterSearchResults(newsData);
-  //   }, 500);
-
-  //   return () => clearTimeout(timeout);
-  // }, []);
 
   return (
     <CurrentUserContext.Provider value={{ currentUser: userData, isSignedIn }}>
@@ -318,6 +330,7 @@ function App() {
                 <SavedArticles
                   articles={articles}
                   handleArticleBookmark={handleArticleBookmark}
+                  handleDeleteArticle={handleDeleteArticle}
                 />
               </ProtectedRoute>
             }
