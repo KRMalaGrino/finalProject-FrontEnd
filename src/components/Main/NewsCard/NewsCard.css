@@ -20,6 +20,21 @@
   border-radius: 17px 17px 0 0;
 }
 
+.news-card__keyword {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background-color: white;
+  color: black;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  text-transform: capitalize;
+  z-index: 3;
+  user-select: none;
+}
+
 .news-card__bookmark-container {
   display: flex;
   justify-content: center;

@@ -4,7 +4,7 @@ function SavedArticles({ articles, handleArticleBookmark }) {
   const renderNewsCards = () => {
     return articles.map((article, index) => (
       <NewsCard
-        key={index}
+        key={article._id}
         article={article}
         handleArticleBookmark={handleArticleBookmark}
       />
@@ -18,7 +18,9 @@ function SavedArticles({ articles, handleArticleBookmark }) {
           {renderNewsCards()}
         </div>
       ) : (
-        <p className="savedArticles__no-articles">No saved articles yet.</p>
+        <div className="savedArticles__no-articles-wrapper">
+          <p className="savedArticles__no-articles">No saved articles yet.</p>
+        </div>
       )}
     </main>
   );

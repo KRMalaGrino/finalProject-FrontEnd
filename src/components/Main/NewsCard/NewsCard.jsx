@@ -14,6 +14,7 @@ function NewsCard({ article, handleArticleBookmark }) {
     publishedAt,
     source,
     isBookmarked,
+    keyword,
   } = article;
   const [showTooltip, setShowTooltip] = useState(false);
   const { isSignedIn } = useContext(CurrentUserContext);
@@ -34,6 +35,9 @@ function NewsCard({ article, handleArticleBookmark }) {
       <div className="news-card__container">
         <div className="news-card__img-container">
           <img className="news-card__image" src={urlToImage} alt={title} />
+
+          {keyword && <div className="news-card__keyword">{keyword}</div>}
+
           <div
             className="news-card__bookmark-container"
             onMouseEnter={() => !isSignedIn && setShowTooltip(true)}

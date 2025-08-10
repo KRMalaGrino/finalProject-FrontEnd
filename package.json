@@ -2,7 +2,7 @@
   "name": "news-explorer",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://krmalagrino.github.io/finalProject-FrontEnd",
+  "homepage": "https://malryan9.ignorelist.com",
   "type": "module",
   "scripts": {
     "dev": "vite --open",

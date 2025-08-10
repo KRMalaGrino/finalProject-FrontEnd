@@ -19,6 +19,16 @@
 }
 
 .savedArticles__no-articles {
-  padding: 0 0 0 104px;
-  margin: 0;
+  display: block;
+  width: 100%;
+  max-width: 712px;
+  margin-left: 104px;
+  padding-left: 104px;
+}
+
+.savedArticles__no-articles {
+  width: 100%;
+  text-align: left;
+  padding-left: 104px;
+  box-sizing: border-box;
 }

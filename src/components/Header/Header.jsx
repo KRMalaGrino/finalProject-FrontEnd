@@ -9,6 +9,8 @@ function Header({
   userData,
   handleSignOut,
   onSearch,
+  savedArticlesCount,
+  savedKeywords = [],
 }) {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
@@ -44,9 +46,23 @@ function Header({
       {isSavedArticlesPage && (
         <div className="header__saved-title-container">
           <p className="header__saved-title">Saved articles</p>
-          <p className="header__total">Ryan, you have __ saved articles</p>
+          <p className="header__total">
+            {userData?.name || "User"}, you have {savedArticlesCount} saved{" "}
+            {savedArticlesCount === 1 ? "article" : "articles"}
+          </p>
           <p className="header__keywords">
-            By keywords: <span className="header__keywords-bold">keyword, keyword and __ others</span>
+            By keywords:{" "}
+            <span className="header__keywords-bold">
+              {savedKeywords.length === 0
+                ? "No keywords"
+                : savedKeywords.length === 1
+                ? savedKeywords[0]
+                : savedKeywords.length === 2
+                ? `${savedKeywords[0]} and ${savedKeywords[1]}`
+                : `${savedKeywords[0]}, ${savedKeywords[1]} and ${
+                    savedKeywords.length - 2
+                  } others`}
+            </span>
           </p>
           {/* <p className="header__total">{`${user}, you have ${total} saved articles`}</p>
           <p>{`By keywords: ${keywords} and ${total-left} others`}</p> */}
