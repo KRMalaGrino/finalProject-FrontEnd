@@ -317,6 +317,7 @@ function App() {
                   <Main
                     articles={articles}
                     handleArticleBookmark={handleArticleBookmark}
+                    currentSearchKeyword={currentSearchKeyword}
                   />
                 )}
                 <About />
