@@ -102,6 +102,11 @@ html {
   cursor: pointer;
 }
 
+.navigation__logout-button {
+  background: transparent;
+  border: none;
+}
+
 .navigation__exit-icon {
   padding: 3px 0 0;
   background-color: transparent;
