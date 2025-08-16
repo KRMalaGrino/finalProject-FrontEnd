@@ -2,6 +2,6 @@
 
 Deployment links -
 
-	malryan9.ignorelist.com
- 	api.malryan9.ignorelist.com
+malryan9.ignorelist.com
+api.malryan9.ignorelist.com
 
