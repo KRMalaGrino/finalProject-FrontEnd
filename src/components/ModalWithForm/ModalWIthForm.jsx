@@ -8,7 +8,6 @@ function ModalWithForm({
   children,
   buttonText,
   altButtonText,
-  activeModal,
   onAltButtonClick,
 }) {
   // click handler for clicking outside the modal to close it
@@ -47,22 +46,35 @@ function ModalWithForm({
         >
           {children}
           <div className="modal-with-form__button-wrapper">
-            <button className="modal-with-form__submit-btn">
-              {buttonText}
-            </button>
-            <div className="modal-with-form__alt-wrapper">
-              <p className="modal-with-form__alt-text">or</p>
+            {buttonText && (
               <button
-                className="modal-with-form__alt-btn"
-                type="button"
+                className="modal-with-form__submit-btn"
+                type={onSubmit ? "submit" : "button"}
                 onClick={() => {
-                  closeActiveModal();
-                  onAltButtonClick();
+                  if (!onSubmit) {
+                    closeActiveModal();
+                    onAltButtonClick?.();
+                  }
                 }}
               >
-                {altButtonText}
+                {buttonText}
               </button>
-            </div>
+            )}
+            {altButtonText && (
+              <div className="modal-with-form__alt-wrapper">
+                <p className="modal-with-form__alt-text">or</p>
+                <button
+                  className="modal-with-form__alt-btn"
+                  type="button"
+                  onClick={() => {
+                    closeActiveModal();
+                    onAltButtonClick?.();
+                  }}
+                >
+                  {altButtonText}
+                </button>
+              </div>
+            )}
           </div>
         </form>
         <button

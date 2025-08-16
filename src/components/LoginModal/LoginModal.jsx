@@ -3,12 +3,8 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 function LoginModal({
   isOpen,
   handleSubmit,
-  handleLogin,
-  handleEmail,
-  handlePassword,
   openRegisterModal,
   closeActiveModal,
-  onAltButtonClick,
 }) {
   return (
     <ModalWithForm

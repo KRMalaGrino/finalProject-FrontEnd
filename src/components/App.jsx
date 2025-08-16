@@ -19,7 +19,8 @@ import Footer from "./Footer/Footer";
 import Preloader from "./Preloader/Preloader";
 import LoginModal from "./LoginModal/LoginModal";
 import RegisterModal from "./RegisterModal/RegisterModal";
-
+import RegisterSuccessModal from "./RegisterSuccessModal/RegisterSuccessModal";
+// images
 import NothingFound from "../images/not-found.png";
 
 function App() {
@@ -49,12 +50,8 @@ function App() {
     setActiveModal("login");
   };
 
-  const openLogoutModal = () => {
-    setActiveModal("logout");
-  };
-
-  const openEditProfileModal = () => {
-    setActiveModal("edit-profile");
+  const openRegisterSuccessModal = () => {
+    setActiveModal("register-success");
   };
 
   const closeActiveModal = () => {
@@ -168,7 +165,8 @@ function App() {
     return auth
       .signUp(email, password, username)
       .then(() => {
-        return handleSignin({ email, password });
+        closeActiveModal();
+        openRegisterSuccessModal();
       })
       .catch((err) => {
         if (err.status === 409) {
@@ -342,7 +340,12 @@ function App() {
         <LoginModal
           isOpen={activeModal === "login"}
           openRegisterModal={openRegisterModal}
-          openLoginModal={openLoginModal}
+          handleSubmit={(e) => {
+            e.preventDefault();
+            const email = e.target.email.value;
+            const password = e.target.password.value;
+            handleSignin({ email, password });
+          }}
           closeActiveModal={closeActiveModal}
         />
         <RegisterModal
@@ -351,6 +354,12 @@ function App() {
           error={registerError}
           openLoginModal={openLoginModal}
           closeActiveModal={closeActiveModal}
+        />
+        <RegisterSuccessModal
+          isOpen={activeModal === "register-success"}
+          openRegisterSuccessModal={openRegisterSuccessModal}
+          closeActiveModal={closeActiveModal}
+          openLoginModal={openLoginModal}
         />
       </div>
     </CurrentUserContext.Provider>
