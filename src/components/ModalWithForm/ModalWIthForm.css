@@ -18,7 +18,7 @@
   z-index: 2;
 }
 
-.modal-with-form_opened {
+.modal-with-form--opened {
   visibility: visible;
   opacity: 1;
 }

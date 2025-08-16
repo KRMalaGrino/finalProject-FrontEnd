@@ -35,7 +35,7 @@ function ModalWithForm({
 
   return (
     <div
-      className={`modal-with-form ${isOpen && "modal-with-form_opened"}`}
+      className={`modal-with-form ${isOpen && "modal-with-form--opened"}`}
       onClick={handleOverlayClick}
     >
       <div className="modal-with-form__container">

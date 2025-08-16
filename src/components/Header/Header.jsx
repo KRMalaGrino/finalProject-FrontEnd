@@ -24,8 +24,8 @@ function Header({
     <div
       className={
         isSavedArticlesPage
-          ? "header-savedArticles__wrapper"
-          : "header-searchForm__wrapper"
+          ? "header__saved-articles-wrapper"
+          : "header__search-form-wrapper"
       }
     >
       <div className={wrapperClassName}>
@@ -52,7 +52,7 @@ function Header({
           </p>
           <p className="header__keywords">
             By keywords:{" "}
-            <span className="header__keywords-bold">
+            <span className="header__keywords--bold">
               {savedKeywords.length === 0
                 ? "No keywords"
                 : savedKeywords.length === 1

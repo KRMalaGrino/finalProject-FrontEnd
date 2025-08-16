@@ -1,4 +1,4 @@
-.header-searchForm__wrapper {
+.header__search-form-wrapper {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -14,7 +14,7 @@
   overflow: hidden;
 }
 
-.header-searchForm__wrapper::before {
+.header__search-form-wrapper::before {
   content: "";
   position: absolute;
   top: 0;
@@ -97,7 +97,7 @@
   line-height: 24px;
 }
 
-.header__keywords-bold {
+.header__keywords--bold {
   width: 712px;
   height: 24px;
 

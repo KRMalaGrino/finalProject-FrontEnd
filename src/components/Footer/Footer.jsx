@@ -32,7 +32,7 @@ function Footer() {
           href="https://tripleten.com/home/web/"
           target="_blank"
           rel="noopener noreferrer"
-          className="footer__a"
+          className="footer__link"
         >
           <button className="footer__link-text" type="button">
             TripleTen
@@ -43,7 +43,7 @@ function Footer() {
             href="https://github.com/KRMalaGrino"
             target="_blank"
             rel="noopener noreferrer"
-            className="footer__a"
+            className="footer__link"
           >
             <img className="footer__icon" src={githubIcon} alt="github icon" />
           </a>
@@ -51,7 +51,7 @@ function Footer() {
             href="https://www.instagram.com/kr_malagrino/?hl=en"
             target="_blank"
             rel="noopener noreferrer"
-            className="footer__a"
+            className="footer__link"
           >
             <img
               className="footer__icon"
