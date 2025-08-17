@@ -2,23 +2,24 @@
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
-  src: url("roboto-400-regular.woff") format("woff"),
-    url("roboto-400-regular.woff2") format("woff2");
+  src: url("/src/vendor/Fonts/latin/inter-400-regular.woff") format("woff"),
+    url("/src/vendor/Fonts/latin/roboto-400-regular.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "Roboto Slab";
   font-style: normal;
   font-weight: 400;
-  src: url("roboto-slab-400-regular.woff") format("woff"),
-    url("roboto-slab-400-regular.woff2") format("woff2");
+  src: url("/src/vendor/Fonts/latin/roboto-slab-400-regular.woff")
+      format("woff"),
+    url("/src/vendor/Fonts/latin/roboto-slab-400-regular.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
-  src: url("inter-400-regular.woff") format("woff"),
+  src: url("/src/vendor/Fonts/latin/inter-400-regular.woff") format("woff"),
     url("inter-400-regular.woff2") format("woff2");
 }
 
@@ -26,5 +27,6 @@
   font-family: "Source Sans Pro";
   font-style: normal;
   font-weight: 400;
-  src: url("Source_Sans_3-Regular.ttf") format("truetype");
+  src: url("/src/vendor/Fonts/Source_Sans_3/SourceSans3-Regular.ttf")
+    format("truetype");
 }
