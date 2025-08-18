@@ -1,7 +1,5 @@
 # Final Project - News Explorer - Frontend
 
-Deployment links -
+Deployment link -
 
-malryan9.ignorelist.com
-
-api.malryan9.ignorelist.com
+https://krmalagrino.github.io/finalProject-FrontEnd/
