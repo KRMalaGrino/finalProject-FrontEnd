@@ -3,9 +3,9 @@ import { useLocation } from "react-router-dom";
 import CurrentUserContext from "../../../contexts/CurrentUserContext";
 import { formatDate } from "../../../utils/apiUtils";
 
-import bookmarkUnmarked from "../../../images/bookmark-unmarked.png";
-import bookmarkMarked from "../../../images/bookmark-marked.png";
-import trashIcon from "../../../images/trash-white.png";
+import bookmarkUnmarked from "../../../images/bookmark-unmarked.svg";
+import bookmarkMarked from "../../../images/bookmark-marked.svg";
+import trashIcon from "../../../images/trash.svg";
 
 function NewsCard({ article, handleArticleBookmark, onDelete }) {
   const {

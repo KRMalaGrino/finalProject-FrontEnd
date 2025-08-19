@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import logoutWhite from "../../../images/logout-white.svg";
-import logoutBlack from "../../../images/logout-black.png";
+import logoutBlack from "../../../images/logout-black.svg";
 
 function Navigation({
   isSignedIn,

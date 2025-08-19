@@ -21,7 +21,7 @@ import LoginModal from "./LoginModal/LoginModal";
 import RegisterModal from "./RegisterModal/RegisterModal";
 import RegisterSuccessModal from "./RegisterSuccessModal/RegisterSuccessModal";
 // images
-import NothingFound from "../images/not-found.png";
+import NothingFound from "../images/not-found.svg";
 
 function App() {
   // use states
