@@ -1,9 +1,9 @@
 const APIkey = "9bc7acfcbd9e489da102f219d54595db";
 
 const baseUrl =
-  process.env.NODE_ENV === "production"
-    ? "https://malryan9.ignorelist.com"
-    : "http://localhost:3001";
+  import.meta.env.MODE === "production"
+    ? import.meta.env.VITE_API_URL_PROD
+    : import.meta.env.VITE_API_URL_DEV;
 
 const baseHeader = { "Content-Type": "application/json" };
 

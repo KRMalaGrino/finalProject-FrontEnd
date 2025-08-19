@@ -1,7 +1,7 @@
 import {
-  handleResponse,
-  baseUrl,
-  baseHeader,
+  // handleResponse,
+  // baseUrl,
+  // baseHeader,
   FAKE_TOKEN,
   STORAGE_KEY,
 } from "./apiUtils";
@@ -29,7 +29,7 @@ const signUp = (email, password, username) => {
 //   }).then(handleResponse);
 // }
 
-const signIn = (email, password) => {
+const signIn = (email) => {
   return new Promise((resolve, reject) => {
     const user = JSON.parse(localStorage.getItem("mockUser"));
     if (user && user.email === email) {

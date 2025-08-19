@@ -1,7 +1,7 @@
 import {
-  handleResponse,
-  baseUrl,
-  baseHeader,
+  // handleResponse,
+  // baseUrl,
+  // baseHeader,
   FAKE_TOKEN,
   STORAGE_KEY,
 } from "./apiUtils";
@@ -44,7 +44,7 @@ function deleteArticle(_id, token) {
   });
 }
 
-function bookmarkArticle(_id, token) {
+function bookmarkArticle() {
   return Promise.resolve();
 }
 
