@@ -35,7 +35,7 @@ function NewsCard({ article, handleArticleBookmark, onDelete }) {
   };
 
   return (
-    <div className="news-card">
+    <section className="news-card">
       <div className="news-card__container">
         <div className="news-card__img-container">
           <img
@@ -88,12 +88,12 @@ function NewsCard({ article, handleArticleBookmark, onDelete }) {
         </div>
         <div className="news-card__text-container">
           <p className="news-card__date">{formatDate(publishedAt)}</p>
-          <p className="news-card__title">{title}</p>
+          <h1 className="news-card__title">{title}</h1>
           <p className="news-card__description">{description}</p>
           <p className="news-card__source">{source.name}</p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

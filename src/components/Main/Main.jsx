@@ -18,8 +18,8 @@ function Main({ articles, handleArticleBookmark, currentSearchKeyword }) {
   };
 
   return (
-    <div className="main">
-      <p className="main__title">Search results</p>
+    <main className="main">
+      <h1 className="main__title">Search results</h1>
       <div className="main__news-card-container">
         {articles.slice(0, visibleCount).map((article) => (
           <NewsCard
@@ -38,7 +38,7 @@ function Main({ articles, handleArticleBookmark, currentSearchKeyword }) {
           Show more
         </button>
       )}
-    </div>
+    </main>
   );
 }
 

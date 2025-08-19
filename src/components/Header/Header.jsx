@@ -21,7 +21,7 @@ function Header({
   }`;
 
   return (
-    <div
+    <header
       className={
         isSavedArticlesPage
           ? "header__saved-articles-wrapper"
@@ -68,7 +68,7 @@ function Header({
           <p>{`By keywords: ${keywords} and ${total-left} others`}</p> */}
         </div>
       )}
-    </div>
+    </header>
   );
 }
 

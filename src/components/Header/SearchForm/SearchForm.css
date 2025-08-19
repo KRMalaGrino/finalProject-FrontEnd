@@ -72,6 +72,11 @@
   font-size: 18px;
 
   cursor: pointer;
+  transition: background-color 0.3s linear;
+}
+
+.searchForm__btn:hover {
+  background-color: #2a65cc;
 }
 
 @media screen and (max-width: 768px) {

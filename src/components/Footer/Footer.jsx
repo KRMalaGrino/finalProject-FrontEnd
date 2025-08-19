@@ -16,7 +16,7 @@ function Footer() {
   };
 
   return (
-    <div className="footer">
+    <footer className="footer">
       <p className="footer__text">© 2024 Supersite, Powered by News API</p>
       <div className="footer__link-wrapper">
         <Link to="/">
@@ -61,7 +61,7 @@ function Footer() {
           </a>
         </div>
       </div>
-    </div>
+    </footer>
   );
 }
 

@@ -38,7 +38,7 @@ function ModalWithForm({
       onClick={handleOverlayClick}
     >
       <div className="modal-with-form__container">
-        <p className="modal-with-form__title">{titleText}</p>
+        <h1 className="modal-with-form__title">{titleText}</h1>
         <form
           className="modal-with-form__form"
           id="modal-with-form"

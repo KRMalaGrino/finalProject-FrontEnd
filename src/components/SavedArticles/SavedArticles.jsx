@@ -31,7 +31,7 @@ function SavedArticles({
         </div>
       ) : (
         <div className="savedArticles__no-articles-wrapper">
-          <p className="savedArticles__no-articles">No saved articles yet.</p>
+          <h1 className="savedArticles__no-articles">No saved articles yet.</h1>
         </div>
       )}
     </main>
