@@ -35,10 +35,15 @@
   padding: 0px;
   width: 288px;
   height: 64px;
-  background-color: #e8e8e8;
+  background-color: white;
   border-radius: 80px;
   border: none;
   cursor: pointer;
+  transition: background-color 0.3s linear;
+}
+
+.main__show-more-btn:hover {
+  background-color: #e8e8e8;
 }
 
 .main__nothing-found-container {
