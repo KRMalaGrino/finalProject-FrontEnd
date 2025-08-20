@@ -35,7 +35,7 @@ function NewsCard({ article, handleArticleBookmark, onDelete }) {
   };
 
   return (
-    <section className="news-card">
+    <article className="news-card">
       <div className="news-card__container">
         <div className="news-card__img-container">
           <img
@@ -93,7 +93,7 @@ function NewsCard({ article, handleArticleBookmark, onDelete }) {
           <p className="news-card__source">{source.name}</p>
         </div>
       </div>
-    </section>
+    </article>
   );
 }
 

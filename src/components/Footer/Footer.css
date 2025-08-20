@@ -16,24 +16,38 @@
   color: #b6bcbf;
 }
 
-.footer__link-wrapper {
+.footer__nav {
+  display: flex;
+}
+
+.footer__nav-list {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 40px;
-  color: #1a1b22;
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.footer__link-text {
-  background-color: transparent;
-  border: none;
-  padding: 0;
+.footer__nav-item {
+  display: flex;
+  align-items: center;
+}
 
+.footer__link {
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 18px;
   line-height: 24px;
+  color: #1a1b22;
+  text-decoration: none;
 
   cursor: pointer;
+}
+
+.footer__link:hover {
+  text-decoration: underline;
 }
 
 .footer__icon-wrapper {
@@ -57,9 +71,11 @@
 @media screen and (max-width: 480px) {
   .footer {
     flex-direction: column-reverse;
+    gap: 16px;
   }
 
-  .footer__link-text {
-    order: 10;
+  .footer__nav-list {
+    flex-direction: column;
+    gap: 16px;
   }
 }

@@ -20,15 +20,16 @@ function Main({ articles, handleArticleBookmark, currentSearchKeyword }) {
   return (
     <main className="main">
       <h1 className="main__title">Search results</h1>
-      <div className="main__news-card-container">
+      <ul className="main__news-card-container">
         {articles.slice(0, visibleCount).map((article) => (
-          <NewsCard
-            key={article._id}
-            article={article}
-            handleArticleBookmark={handleArticleBookmark}
-          />
+          <li key={article._id} className="main__news-card-item">
+            <NewsCard
+              article={article}
+              handleArticleBookmark={handleArticleBookmark}
+            />
+          </li>
         ))}
-      </div>
+      </ul>
       {visibleCount < articles.length && (
         <button
           className="main__show-more-btn"
