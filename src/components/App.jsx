@@ -289,7 +289,7 @@ function App() {
           <Route
             path="/"
             element={
-              <>
+              <div className="page-content">
                 {hasSearched && !isLoading && errorMessage && (
                   <div className="main__error">{errorMessage}</div>
                 )}
@@ -319,7 +319,7 @@ function App() {
                   />
                 )}
                 <About />
-              </>
+              </div>
             }
           />
           <Route
