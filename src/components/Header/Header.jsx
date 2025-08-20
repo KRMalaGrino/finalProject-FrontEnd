@@ -11,6 +11,7 @@ function Header({
   onSearch,
   savedArticlesCount,
   savedKeywords = [],
+  setIsMobileMenuOpen,
 }) {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
@@ -38,6 +39,7 @@ function Header({
           handleSignOut={handleSignOut}
           username={userData?.name}
           isSavedArticlesPage={isSavedArticlesPage}
+          setIsMobileMenuOpen={setIsMobileMenuOpen}
         />
       </div>
 

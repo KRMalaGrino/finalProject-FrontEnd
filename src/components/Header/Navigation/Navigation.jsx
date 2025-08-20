@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import logoutWhite from "../../../images/logout-white.svg";
 import logoutBlack from "../../../images/logout-black.svg";
 
@@ -9,8 +9,18 @@ function Navigation({
   username,
   handleSignOut,
   isSavedArticlesPage,
+  setIsMobileMenuOpen,
 }) {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 480);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 480);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <nav
@@ -50,17 +60,21 @@ function Navigation({
             </div>
           </>
         ) : (
-          <button className="navigation__sign-in" onClick={openLoginModal}>
-            Sign in
-          </button>
+          !isMobile && (
+            <button className="navigation__sign-in" onClick={openLoginModal}>
+              Sign in
+            </button>
+          )
         )}
       </div>
-      <button
-        className="navigation__hamburger"
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-      >
-        ☰
-      </button>
+      {isMobile && (
+        <button
+          className="navigation__hamburger"
+          onClick={() => setIsMobileMenuOpen(true)}
+        >
+          ☰
+        </button>
+      )}
     </nav>
   );
 }

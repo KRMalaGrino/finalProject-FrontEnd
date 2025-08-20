@@ -20,6 +20,7 @@ import Preloader from "./Preloader/Preloader";
 import LoginModal from "./LoginModal/LoginModal";
 import RegisterModal from "./RegisterModal/RegisterModal";
 import RegisterSuccessModal from "./RegisterSuccessModal/RegisterSuccessModal";
+import MobileMenuModal from "./MobileMenuModal/MobileMenuModal";
 // images
 import NothingFound from "../images/not-found.svg";
 
@@ -41,6 +42,7 @@ function App() {
   const navigate = useNavigate();
   const location = useLocation();
   const isSavedArticlesPage = location.pathname === "/saved-articles";
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const openRegisterModal = () => {
     setActiveModal("register");
@@ -284,6 +286,7 @@ function App() {
           showSearch={!isSavedArticlesPage}
           savedArticlesCount={articles.length}
           savedKeywords={getTopKeywords(articles)}
+          setIsMobileMenuOpen={setIsMobileMenuOpen}
         />
         <Routes>
           <Route
@@ -359,6 +362,11 @@ function App() {
           isOpen={activeModal === "register-success"}
           openRegisterSuccessModal={openRegisterSuccessModal}
           closeActiveModal={closeActiveModal}
+          openLoginModal={openLoginModal}
+        />
+        <MobileMenuModal
+          isOpen={isMobileMenuOpen}
+          closeActiveModal={() => setIsMobileMenuOpen(false)}
           openLoginModal={openLoginModal}
         />
       </div>
