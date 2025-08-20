@@ -30,6 +30,12 @@ html {
   cursor: pointer;
 }
 
+.navigation__links {
+  display: flex;
+  align-items: center;
+  gap: 42px;
+}
+
 .navigation__sign-in {
   padding: 7px 44px;
 
@@ -46,6 +52,15 @@ html {
   border-width: 1px;
   border-radius: 100px;
 
+  cursor: pointer;
+}
+
+.navigation__hamburger {
+  display: none;
+  font-size: 28px;
+  color: white;
+  background: transparent;
+  border: none;
   cursor: pointer;
 }
 
@@ -123,5 +138,15 @@ html {
 @media screen and (max-width: 768px) {
   .navigation {
     gap: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navigation__links {
+    display: none;
+  }
+
+  .navigation__hamburger {
+    display: block;
   }
 }
