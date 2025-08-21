@@ -49,6 +49,7 @@ function MobileMenuModal({
       if (onSignOut) {
         onSignOut();
       }
+      // closeActiveModal();
     } else {
       closeActiveModal();
       openLoginModal();
