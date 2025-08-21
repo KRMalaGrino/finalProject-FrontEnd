@@ -96,4 +96,6 @@
   border-radius: 100px;
   align-self: center;
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  cursor: pointer;
 }

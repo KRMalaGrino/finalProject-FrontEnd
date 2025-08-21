@@ -6,7 +6,7 @@ function MobileMenuModal({
   closeActiveModal,
   openLoginModal,
   isSignedIn,
-  isSignOut,
+  onSignOut,
 }) {
   const modalRef = useRef(null);
 
@@ -46,7 +46,10 @@ function MobileMenuModal({
 
   const handleAuthClick = () => {
     if (isSignedIn) {
-      handleSignOut();
+      if (onSignOut) {
+        onSignOut();
+      }
+      closeActiveModal();
     } else {
       closeActiveModal();
       openLoginModal();
