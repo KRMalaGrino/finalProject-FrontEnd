@@ -368,6 +368,8 @@ function App() {
           isOpen={isMobileMenuOpen}
           closeActiveModal={() => setIsMobileMenuOpen(false)}
           openLoginModal={openLoginModal}
+          isSignedIn={isSignedIn}
+          handleSignOut={handleSignOut}
         />
       </div>
     </CurrentUserContext.Provider>

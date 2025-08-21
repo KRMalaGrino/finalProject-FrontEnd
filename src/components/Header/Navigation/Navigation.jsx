@@ -18,6 +18,7 @@ function Navigation({
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 480);
     };
+    // handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
