@@ -80,7 +80,7 @@ html {
 }
 
 .navigation__author-wrapper {
-  padding: 0;
+  padding: 0 5px 0 12px;
   display: flex;
   flex-direction: row;
   align-items: center;

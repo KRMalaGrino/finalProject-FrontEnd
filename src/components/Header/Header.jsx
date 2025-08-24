@@ -37,7 +37,7 @@ function Header({
           isSignedIn={isSignedIn}
           openLoginModal={openLoginModal}
           handleSignOut={handleSignOut}
-          username={userData?.name}
+          username={userData?.username}
           isSavedArticlesPage={isSavedArticlesPage}
           setIsMobileMenuOpen={setIsMobileMenuOpen}
         />
@@ -49,7 +49,7 @@ function Header({
         <div className="header__saved-title-container">
           <p className="header__saved-title">Saved articles</p>
           <p className="header__total">
-            {userData?.name || "User"}, you have {savedArticlesCount} saved{" "}
+            {userData?.username || "User"}, you have {savedArticlesCount} saved{" "}
             {savedArticlesCount === 1 ? "article" : "articles"}
           </p>
           <p className="header__keywords">
