@@ -39,11 +39,7 @@ function ModalWithForm({
     >
       <div className="modal-with-form__container">
         <h1 className="modal-with-form__title">{titleText}</h1>
-        <form
-          className="modal-with-form__form"
-          id="modal-with-form"
-          onSubmit={onSubmit}
-        >
+        <form className="modal-with-form__form" onSubmit={onSubmit}>
           {children}
           <div className="modal-with-form__button-wrapper">
             {buttonText && (
